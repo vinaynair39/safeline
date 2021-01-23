@@ -1,0 +1,86 @@
+@import "../../styles/styles";
+
+.footer {
+  min-height: 60vh;
+  background-color: $black;
+  padding: 4vh 6vw;
+  @include media(">tablet") {
+    display: grid;
+    grid-template-columns: 60% 40%;
+  }
+  .logo {
+    @include flexbox(row, center, start);
+    & img {
+      width: 15vw;
+      border-radius: 4px;
+      @include media(">tablet") {
+        width: 13.5vh;
+      }
+    }
+    p {
+      font-size: 2vh;
+      padding-top: 0.2vh;
+      padding-left: 3vw;
+      font-weight: lighter;
+      text-transform: uppercase;
+      font-family: $font-secondary;
+      color: white;
+      @include media(">tablet") {
+        font-size: 3vh;
+        padding-top: 0;
+        padding-left: 0.5vw;
+      }
+    }
+  }
+
+  .main {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    margin-top: 5vh;
+
+    .navlinks {
+      @include flexbox(column, flex-start, flex-start);
+      a {
+        font-weight: lighter;
+        font-size: 1.7vh;
+        letter-spacing: 1.7px;
+        color: white;
+        padding-bottom: 3vh;
+      }
+    }
+    .details {
+      p {
+        color: white;
+        font-weight: lighter;
+        text-transform: uppercase;
+        font-size: 1.6vh;
+        letter-spacing: 1.5px;
+      }
+      .address {
+        color: white;
+        font-size: 1.7vh;
+        letter-spacing: 1.7px;
+        padding-top: 2.8vh;
+        line-height: 2.5vh;
+      }
+      .phone,
+      .email {
+        color: white;
+        font-size: 1.7vh;
+        letter-spacing: 1.7px;
+        padding-top: 2vh;
+        line-height: 2.5vh;
+      }
+      .email {
+        font-size: 3vw;
+        padding-top: 2vh;
+        line-height: 2.5vh;
+      }
+    }
+  }
+  .copyright {
+    margin-top: 5vh;
+    color: white;
+  }
+}

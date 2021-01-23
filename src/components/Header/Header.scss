@@ -1,0 +1,67 @@
+@import "../../styles/styles";
+
+.header {
+  @include flexbox(row, center, space-between);
+  margin: 2vh 6vw;
+  @include media(">tablet") {
+    margin: 1.4vh 6.2vw;
+  }
+  .logo {
+    @include flexbox(row, center, start);
+    & img {
+      width: 15vw;
+      @include media(">tablet") {
+        width: 13.5vh;
+      }
+    }
+    p {
+      font-size: 2vh;
+      padding-top: 0.2vh;
+      padding-left: 1.5vw;
+      font-weight: bolder;
+      text-transform: uppercase;
+      font-family: $font-secondary;
+      color: $green;
+      @include media(">tablet") {
+        font-size: 3vh;
+        padding-top: 0;
+        padding-left: 0.5vw;
+      }
+      & span {
+        color: #002e00;
+        position: relative;
+        left: -6px;
+      }
+    }
+  }
+
+  .info {
+    @include media("<tablet") {
+      display: none;
+    }
+    @include flexbox(row, center, center);
+    font-size: 2.7vh;
+    font-family: $font-secondary;
+    color: $black;
+    .telephone {
+      @include flexbox(row, center, center);
+      svg {
+        width: 2vw;
+      }
+      p {
+        margin-left: 0.4vw;
+      }
+      margin-right: 4vw;
+    }
+    .mail {
+      @include flexbox(row, center, center);
+
+      svg {
+        width: 2.2vw;
+      }
+      p {
+        margin-left: 0.6vw;
+      }
+    }
+  }
+}
