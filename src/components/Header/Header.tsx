@@ -21,7 +21,6 @@ const Header: React.FC<Props> = ({ path }) => {
           Safeline <span>Electricals</span>
         </p>
       </Link>
-
       <MobileNav isOpen={isOpen} path={path} setOpen={setOpen} />
       <div className="info">
         <div className="telephone">

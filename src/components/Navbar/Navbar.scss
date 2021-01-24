@@ -1,0 +1,33 @@
+@import "../../styles/styles";
+
+.navbar {
+  display: none;
+  @include media(">tablet") {
+    padding: 0 6vw;
+    margin-bottom: 2rem;
+    height: 8.8vh;
+    @include flexbox(row, center, flex-start);
+    background-color: $black;
+    a {
+      font-size: 2vh;
+      color: white;
+      padding-right: 3vw;
+      letter-spacing: 5px;
+      font-weight: 400;
+      line-height: 120px;
+      position: relative;
+    }
+
+    a:hover {
+      border-bottom: 100%;
+      .underline {
+        display: flex;
+      }
+    }
+
+    .active {
+      font-weight: bold;
+      color: $green;
+    }
+  }
+}
