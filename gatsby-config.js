@@ -1,7 +1,3 @@
-require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
-});
-
 module.exports = {
   siteMetadata: {
     title: "safeline",
@@ -10,16 +6,8 @@ module.exports = {
     {
       resolve: "gatsby-source-contentful",
       options: {
-        accessToken: process.env.GATSBY_CONTENTFUL_ACCESS_TOKEN,
-        spaceId: process.env.GATSBY_CONTENTFUL_SPACE_ID,
-      },
-    },
-    {
-      resolve: "gatsby-plugin-react-svg",
-      options: {
-        rule: {
-          include: /assets/, // See below to configure properly
-        },
+        accessToken: "vnlFzUz3szjeqC9oEgboeI0v3zasHQTTENAvDr6JTwk",
+        spaceId: "162ud66e5lc3",
       },
     },
     "gatsby-plugin-sass",
