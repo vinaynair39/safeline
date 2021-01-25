@@ -3,6 +3,7 @@
 .hamburger {
   position: relative;
   z-index: 100;
+  left: 0.7rem;
   @include media(">tablet") {
     display: none;
   }

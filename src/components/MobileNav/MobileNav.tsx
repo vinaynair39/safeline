@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
 import { Twirl as Hamburger } from "hamburger-react";
-import "./MobileNav.scss";
+import styles from "./MobileNav.module.scss";
 
 interface Props {
   isOpen: boolean;
@@ -11,10 +11,10 @@ interface Props {
 const MobileNav: React.FC<Props> = ({ isOpen, path, setOpen }) => {
   return (
     <>
-      <div className="hamburger">
+      <div className={styles.hamburger}>
         <Hamburger color={isOpen ? "#fff" : "#35393f"} rounded size={24} toggled={isOpen} toggle={setOpen} />
       </div>
-      <div className={isOpen ? "navLinksOpened" : "navLinks"}>
+      <div className={isOpen ? styles.navLinksOpened : styles.navLinks}>
         <Link to="/" className={path === "/" ? "active" : ""}>
           Home
         </Link>

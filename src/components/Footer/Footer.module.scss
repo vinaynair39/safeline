@@ -6,7 +6,7 @@
   padding: 4vh 6vw;
   @include media(">tablet") {
     display: grid;
-    height: 50vh;
+    height: 55vh;
     padding: 6vh 5vw;
     grid-template-columns: repeat(2, 1fr);
   }
@@ -51,11 +51,11 @@
       @include media(">tablet") {
         display: block;
         color: $grey;
-        font-size: 3.7vh;
+        font-size: 3.8vh;
         text-transform: uppercase;
         font-weight: bold;
         width: 70%;
-        letter-spacing: 12px;
+        letter-spacing: 2px;
       }
     }
 
@@ -83,9 +83,10 @@
         height: 100%;
         display: grid;
         align-items: start;
-        grid-template-rows: 80% 20%;
+        grid-template-rows: 90% 10%;
       }
       .navlinks {
+        transition: all 0.2s ease-in-out;
         @include flexbox(column, flex-start, flex-start);
         a {
           font-weight: lighter;
@@ -93,6 +94,9 @@
           letter-spacing: 1.7px;
           color: $grey;
           padding-bottom: 3vh;
+          &:hover {
+            color: $green;
+          }
         }
         @include media(">tablet") {
           grid-row: 2/3;
@@ -108,7 +112,7 @@
         @include media(">tablet") {
           align-self: start;
           justify-self: end;
-          width: 60%;
+          width: 65%;
           padding-top: 4.5vh;
         }
 
@@ -120,7 +124,7 @@
           letter-spacing: 1.5px;
           @include media(">tablet") {
             font-size: 2.3vh;
-            letter-spacing: 4px;
+            letter-spacing: 2px;
           }
         }
         .address {
@@ -130,9 +134,9 @@
           padding-top: 2.8vh;
           line-height: 140%;
           @include media(">tablet") {
-            font-size: 2.5vh;
+            font-size: 2.3vh;
             line-height: 150%;
-            letter-spacing: 4px;
+            letter-spacing: 2px;
           }
         }
         .phone,
@@ -145,7 +149,7 @@
           @include media(">tablet") {
             padding-top: 4vh;
             letter-spacing: 4px;
-            font-size: 2.5vh;
+            font-size: 2.3vh;
           }
         }
         .email {
@@ -154,13 +158,14 @@
           line-height: 2.5vh;
           letter-spacing: 1px;
           @include media(">tablet") {
-            font-size: 2.5vh;
+            font-size: 2.3vh;
+            letter-spacing: 2px;
           }
         }
       }
     }
   }
-  .mobile-copyright {
+  .mobileCopyright {
     color: $grey;
     margin-top: 5vh;
     color: $grey;

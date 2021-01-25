@@ -17,6 +17,7 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "classnames": "^2.2.6",
     "dotenv": "^8.2.0",
     "framer-motion": "^3.2.2-rc.1",
     "gatsby": "^2.26.1",
@@ -44,6 +45,7 @@
     "@storybook/preset-scss": "^1.0.3",
     "@storybook/react": "^6.1.15",
     "@svgr/webpack": "^5.5.0",
+    "@types/classnames": "^2.2.11",
     "babel-loader": "^8.2.2",
     "babel-preset-react-app": "^10.0.0",
     "css-loader": "^5.0.1",

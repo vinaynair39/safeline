@@ -1,0 +1,103 @@
+@import "../../styles/styles";
+
+.hero {
+  position: relative;
+  height: 83vh;
+  text-align: center;
+
+  @include media(">tablet") {
+    text-align: start;
+  }
+  color: white;
+  .content {
+    position: absolute;
+    top: 7vh;
+    padding: 0 6vw;
+    @include media(">tablet") {
+      top: 13.5vh;
+    }
+  }
+  .pretitle,
+  .title {
+    font-family: IBM Plex Mono;
+    font-style: normal;
+    font-size: 1.8vh;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: white;
+    @include media(">tablet") {
+      font-size: 2.7vh;
+      font-weight: 500;
+      letter-spacing: 8px;
+    }
+  }
+
+  .title {
+    margin-top: 0.8vh;
+    font-size: 3.2vh;
+    letter-spacing: 0;
+    line-height: 4.5vh;
+
+    @include media(">tablet") {
+      font-size: 6.5vh;
+      letter-spacing: 12px;
+      line-height: 8.6vh;
+      width: 60%;
+      margin-top: 0;
+      font-weight: bolder;
+    }
+  }
+
+  .buttons {
+    @include flexbox(column, center, center);
+    margin-top: 3vh;
+    @include media(">tablet") {
+      flex-direction: row;
+      justify-content: flex-start;
+      margin-top: 4vh;
+    }
+    .primary,
+    .secondary {
+      @include flexbox(row, center, space-evenly);
+      padding: 1.2vh 1vh;
+      font-size: 1.8vh;
+      color: white;
+      font-weight: 600;
+      letter-spacing: 1px;
+      background-color: $green;
+      margin-bottom: 2.5vh;
+      cursor: pointer;
+      width: 44vw;
+      border: 2px solid $green;
+      border-radius: 4px;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      @include media(">tablet") {
+        @include flexbox(row, center, flex-start);
+        width: fit-content;
+        white-space: nowrap;
+        padding: 2vh;
+        font-size: 2.8vh;
+        margin-right: 2vw;
+        font-weight: normal;
+        letter-spacing: 4px;
+        border: 0.3vh solid $green;
+        border-radius: 8px;
+        & svg {
+          height: 4rem;
+          width: 4rem;
+        }
+      }
+
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+    .secondary {
+      background-color: transparent;
+      background: rgba(53, 57, 63, 0.5);
+    }
+  }
+}
