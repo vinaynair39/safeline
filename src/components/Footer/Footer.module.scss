@@ -4,10 +4,12 @@
   height: 60vh;
   background-color: $black;
   padding: 4vh 6vw;
+  margin-top: 12vh;
   @include media(">tablet") {
     display: grid;
     height: 55vh;
     padding: 6vh 5vw;
+    margin-top: 6vh;
     grid-template-columns: repeat(2, 1fr);
   }
 

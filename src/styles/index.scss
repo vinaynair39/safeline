@@ -9,6 +9,7 @@
   list-style: none;
   background: none;
   border: none;
+  box-sizing: border-box;
 }
 
 body {
@@ -18,4 +19,14 @@ body {
 
 .home {
   position: relative;
+}
+
+.alice-carousel__stage {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.alice-carousel__dots {
+  display: none;
 }

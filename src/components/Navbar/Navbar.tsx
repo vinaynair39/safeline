@@ -19,16 +19,16 @@ const Navbar: React.FC<Props> = ({ path }) => {
           <a className={classnames(styles.button, { [styles.active]: path === "/about" })}>About Us</a>
           <ul>
             <li>
-              <Link to="/">Organizational Chart</Link>
+              <Link to="/chart">Organizational Chart</Link>
             </li>
             <li>
-              <Link to="/">List of tools & Plants</Link>
+              <Link to="/tools">List of tools & Plants</Link>
             </li>
             <li>
-              <Link to="/">Statuary Details</Link>
+              <Link to="/statuary">Statuary Details</Link>
             </li>
             <li>
-              <Link to="/">Certificates</Link>
+              <Link to="/certificates">Certificates</Link>
             </li>
             <li>
               <Link to="/awards">Awards & Recognition</Link>
@@ -39,40 +39,40 @@ const Navbar: React.FC<Props> = ({ path }) => {
           <a className={classnames(styles.button, { [styles.active]: path === "/services" })}>Services</a>
           <ul>
             <li>
-              <Link to="/">New Sub Station Work</Link>
+              <Link to="/new-sub-station-work">New Sub Station Work</Link>
             </li>
             <li>
-              <Link to="/">Liasoning with MSEDCL & PWD</Link>
+              <Link to="/electrical-legal-liasoning">Electrical Legal Liasoning with MSEDCL & PWD</Link>
             </li>
             <li>
-              <Link to="/">Anual Electrical Maintenance</Link>
+              <Link to="/annual-electrical-maintainance">Anual Electrical Maintenance</Link>
             </li>
             <li>
-              <Link to="/">Supply Power Control Panels</Link>
+              <Link to="/supply-power-control-panels">Supply Power Control Panels</Link>
             </li>
             <li>
-              <Link to="/awards">Cable Tray Fabrication & Inst</Link>
+              <Link to="/cabel-tray-fabrication-and-installation">Cable Tray Fabrication & Installation</Link>
             </li>
             <li>
-              <Link to="/awards">HT/ LT Cable Laying</Link>
+              <Link to="/ht-and-lt-cable-laying">HT/LT Cable Laying</Link>
             </li>
             <li>
-              <Link to="/awards">HT Overhead Line Work</Link>
+              <Link to="/ht-overhead-line-work">HT Overhead Line Work</Link>
             </li>
             <li>
-              <Link to="/awards">Earthing System/ Protection</Link>
+              <Link to="/earthing-system-and-protection">Earthing System/Protection</Link>
             </li>
             <li>
-              <Link to="/awards">Manpower Outsourcing</Link>
+              <Link to="/manpower-outsourcing">Manpower Outsourcing</Link>
             </li>
             <li>
-              <Link to="/awards">Streetlights & Warehouse Lighting</Link>
+              <Link to="/streetlights-and-warehouse-lighting">Streetlights & Warehouse Lighting</Link>
             </li>
             <li>
-              <Link to="/awards">Internal & External Electrification</Link>
+              <Link to="/internal-and-external-electrification">Internal & External Electrification</Link>
             </li>
             <li>
-              <Link to="/awards">Civil & Mechanical Works</Link>
+              <Link to="/civil-and-mechanical-works">Civil & Mechanical Works</Link>
             </li>
           </ul>
         </div>

@@ -8,14 +8,23 @@
   }
   .logo {
     @include flexbox(row, center, start);
-    & img {
+    // & img {
+    //   width: 15vw;
+    //   position: relative;
+
+    //   @include media(">tablet") {
+    //     width: 13.4vh;
+    //   }
+    // }
+    .imageContainer {
       width: 15vw;
       position: relative;
 
       @include media(">tablet") {
-        width: 13.5vh;
+        width: 13.4vh;
       }
     }
+
     p {
       font-size: 2vh;
       padding-top: 0.2vh;

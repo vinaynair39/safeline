@@ -2,46 +2,45 @@
 
 .hero {
   position: relative;
-  height: 83vh;
   text-align: center;
-
   @include media(">tablet") {
     text-align: start;
   }
   color: white;
   .content {
     position: absolute;
-    top: 7vh;
+    top: 6vh;
     padding: 0 6vw;
     @include media(">tablet") {
-      top: 13.5vh;
+      top: 12vh;
     }
   }
   .pretitle,
   .title {
     font-family: IBM Plex Mono;
     font-style: normal;
-    font-size: 1.8vh;
-    letter-spacing: 4px;
+    font-size: 2vh;
+    letter-spacing: 2px;
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: 500;
     color: white;
     @include media(">tablet") {
-      font-size: 2.7vh;
+      font-size: 2.6vh;
       font-weight: 500;
-      letter-spacing: 8px;
+      letter-spacing: 4px;
     }
   }
 
   .title {
-    margin-top: 0.8vh;
-    font-size: 3.2vh;
+    margin-top: 1vh;
+    font-size: 6.9vw;
     letter-spacing: 0;
-    line-height: 4.5vh;
+    line-height: 5vh;
+    font-weight: 600;
 
     @include media(">tablet") {
       font-size: 6.5vh;
-      letter-spacing: 12px;
+      letter-spacing: 4px;
       line-height: 8.6vh;
       width: 60%;
       margin-top: 0;
@@ -55,13 +54,13 @@
     @include media(">tablet") {
       flex-direction: row;
       justify-content: flex-start;
-      margin-top: 4vh;
+      margin-top: 5vh;
     }
     .primary,
     .secondary {
       @include flexbox(row, center, space-evenly);
-      padding: 1.2vh 1vh;
-      font-size: 1.8vh;
+      padding: 1vh 0.8vh;
+      font-size: 4vw;
       color: white;
       font-weight: 600;
       letter-spacing: 1px;
@@ -76,16 +75,16 @@
         @include flexbox(row, center, flex-start);
         width: fit-content;
         white-space: nowrap;
-        padding: 2vh;
+        padding: 1.6vh 2vh;
         font-size: 2.8vh;
         margin-right: 2vw;
         font-weight: normal;
-        letter-spacing: 4px;
+        letter-spacing: 2px;
         border: 0.3vh solid $green;
         border-radius: 8px;
         & svg {
-          height: 4rem;
-          width: 4rem;
+          height: 2vw;
+          width: 2vw;
         }
       }
 

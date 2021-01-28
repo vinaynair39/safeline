@@ -1,0 +1,88 @@
+@import "../../styles/styles";
+
+.projectCard {
+  height: 54vh;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  @include flexbox(column, center, space-between);
+  flex-direction: column-reverse;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  @include media(">tablet") {
+    height: 60vh;
+    box-shadow: none;
+    flex-direction: row;
+  }
+  .image {
+    // box-sizing: border-box;
+    height: 26vh;
+    width: 100%;
+    background-color: $green;
+    border-radius: 8px 8px 0px 0px;
+    @include media(">tablet") {
+      width: 50vw;
+      height: 60vh;
+      border-radius: 8px;
+      position: absolute;
+      right: 0;
+      top: -6vh;
+      padding: 5vh 5vw;
+    }
+  }
+  .content {
+    @include flexbox(column, center, space-around);
+    height: 28vh;
+    padding: 2vh 3vw;
+    background-color: $black;
+    border-radius: 0 0 8px 8px;
+    text-align: center;
+    box-sizing: border-box;
+    width: 100%;
+
+    @include media(">tablet") {
+      width: 60vw;
+      border-radius: 8px;
+      height: 60vh;
+    }
+
+    h1 {
+      color: $green;
+      text-transform: uppercase;
+      font-size: 2.2vh;
+      font-weight: bold;
+      letter-spacing: 2px;
+      @include media(">tablet") {
+        font-size: 3.4vh;
+        font-weight: 700;
+        position: relative;
+        left: -5vw;
+      }
+    }
+    p {
+      color: white;
+      font-weight: bold;
+      font-size: 2vh;
+      line-height: 144%;
+      @include media(">tablet") {
+        font-size: 3.6vh;
+        font-weight: 700;
+        position: relative;
+        left: -5vw;
+        width: 80%;
+        line-height: 154%;
+      }
+    }
+    .button {
+      color: $green;
+      font-weight: 600;
+      font-size: 1.8vh;
+      letter-spacing: 1px;
+      @include media(">tablet") {
+        font-size: 2.6vh;
+        font-weight: 700;
+        position: relative;
+        left: -5vw;
+      }
+    }
+  }
+}

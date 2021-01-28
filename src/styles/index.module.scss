@@ -1,0 +1,28 @@
+@import "./styles";
+.home {
+  .quote {
+    .image {
+      background-image: url("../images/suit.jpg");
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 70vh;
+      width: 100%;
+    }
+
+    @include media("<tablet") {
+      .image {
+        display: none;
+      }
+    }
+    .form {
+      @include media(">tablet") {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        top: -24vh;
+      }
+    }
+  }
+}

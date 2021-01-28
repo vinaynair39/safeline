@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import logo from "../../images/logo.png";
 import Telephone from "../../assets/telephone.svg";
 import Mail from "../../assets/mail.svg";
+import Img from "gatsby-image";
+
 import MobileNav from "../MobileNav/MobileNav";
-import { Link } from "gatsby";
+import { graphql, Link, useStaticQuery } from "gatsby";
 
 import styles from "./Header.module.scss";
 
@@ -12,11 +13,24 @@ interface Props {
 }
 
 const Header: React.FC<Props> = ({ path }) => {
+  const data = useStaticQuery(graphql`
+    query {
+      logo: file(relativePath: { eq: "logo.png" }) {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `);
   const [isOpen, setOpen] = useState(false);
   return (
     <div className={styles.header}>
       <Link to="/" className={styles.logo}>
-        <img src={logo} alt="logo" />
+        <div className={styles.imageContainer}>
+          <Img fluid={data.logo.childImageSharp.fluid} style={{ width: "100%" }} />
+        </div>
         <p>
           Safeline <span>Electricals</span>
         </p>

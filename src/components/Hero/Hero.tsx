@@ -4,20 +4,24 @@ import Img from "gatsby-image";
 import Arrow from "../../assets/arrow.svg";
 import styles from "./Hero.module.scss";
 
-interface Props {}
+interface Props {
+  pretitle: string;
+  title: string;
+  image: [any];
+}
 const Hero: React.FC<Props> = () => {
   const data = useStaticQuery(graphql`
     query {
       mobileImage: file(relativePath: { eq: "bg-mobile.png" }) {
         childImageSharp {
-          fluid(maxWidth: 2048, quality: 90) {
+          fluid(maxWidth: 2048, quality: 100) {
             ...GatsbyImageSharpFluid
           }
         }
       }
       desktopImage: file(relativePath: { eq: "bg.png" }) {
         childImageSharp {
-          fluid(maxWidth: 2048, quality: 90) {
+          fluid(maxWidth: 2048, quality: 100) {
             ...GatsbyImageSharpFluid
           }
         }

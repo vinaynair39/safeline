@@ -7,14 +7,14 @@
   background-color: $black;
   padding: 0 6vw;
   .dropdown {
-    height: 9vh;
+    height: 8.7vh;
     display: flex;
     align-items: center;
 
     .button {
       font-size: 2.2vh;
       color: white;
-      letter-spacing: 4px;
+      letter-spacing: 2px;
       cursor: pointer;
       font-weight: 600;
       margin: auto 0;
@@ -24,7 +24,7 @@
     .menuItem {
       position: relative;
       z-index: 100;
-      height: 9vh;
+      height: 8.7vh;
       display: flex;
       margin-right: 3.4vw;
       ul {
@@ -35,13 +35,23 @@
         pointer-events: none;
         position: absolute;
         background: white;
-        margin-top: 9.1vh;
+        margin-top: 8.8vh;
         padding: 2vw;
         transition: all 0.3s ease-in;
         white-space: nowrap;
         border-radius: 8px;
         li {
           margin-bottom: 2.5vh;
+        }
+        li::before {
+          content: "";
+          height: 0.4vh;
+          border-radius: 4px;
+          left: 0;
+          height: 2vh;
+          width: 100%;
+          background-color: $green;
+          transition: transform 0.25s cubic-bezier(0.37, 0.31, 0.2, 0.85);
         }
         li:last-child {
           margin-bottom: 0;

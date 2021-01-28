@@ -1,0 +1,60 @@
+@import "../../styles/styles";
+
+.card {
+  width: 100%;
+  height: 55vh;
+  cursor: pointer;
+  background-color: $black;
+  border-radius: 4px;
+  margin-bottom: 4vh;
+  position: relative;
+  @include media(">tablet") {
+    border-radius: 8px;
+    width: 42vh;
+    height: 52vh;
+  }
+
+  .image {
+    @include media(">tablet") {
+      width: 42vh;
+    }
+  }
+
+  .content {
+    height: 16.5vh;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 1vh;
+    @include flexbox(column, center, space-around);
+    @include media(">tablet") {
+      padding: 2vh 0.8vh 0.4vh 0.8vh;
+      height: 14vh;
+      justify-content: space-between;
+    }
+    .title {
+      color: white;
+      font-size: 2.8vh;
+      font-weight: 600;
+      @include media(">tablet") {
+        font-size: 2.4vh;
+      }
+    }
+    button {
+      border: 2px solid $green;
+      padding: 1vh;
+      border-radius: 4px;
+      cursor: pointer;
+      width: fit-content;
+      transition: all 0.2s ease-in;
+      a {
+        color: white;
+        font-size: 2vh;
+        font-weight: lighter;
+      }
+
+      &:hover {
+        background-color: $green;
+      }
+    }
+  }
+}
