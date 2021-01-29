@@ -1,6 +1,7 @@
 import { useStaticQuery, graphql } from "gatsby";
 import GatsbyImage from "gatsby-image";
 import React from "react";
+import { useState } from "react";
 import Carousel from "react-multi-carousel";
 import styles from "./Clients.module.scss";
 
@@ -17,6 +18,7 @@ const responsive = {
 
 interface Props {}
 const Clients: React.FC<Props> = ({}) => {
+  const [commentIndex, setCommentIndex] = useState(0);
   const data = useStaticQuery(graphql`
     query {
       allFile(filter: { relativeDirectory: { eq: "clients" } }, sort: { fields: relativePath, order: ASC }) {
@@ -30,8 +32,32 @@ const Clients: React.FC<Props> = ({}) => {
           }
         }
       }
+      allContentfulReview {
+        nodes {
+          authorName
+          authorDesignation
+          comment {
+            comment
+          }
+          image {
+            fluid {
+              base64
+              aspectRatio
+              src
+              srcSet
+              sizes
+            }
+          }
+        }
+      }
     }
   `);
+
+  const commentIndexChange = (index: number) => {
+    if (data.allContentfulReview.nodes.length - 1 >= index) {
+      setCommentIndex(index);
+    }
+  };
 
   return (
     <div className={styles.clients}>
@@ -62,21 +88,17 @@ const Clients: React.FC<Props> = ({}) => {
         </Carousel>
       </div>
       <div className={styles.reviews}>
-        <p className={styles.title}>What our clients says</p>
+        <p className={styles.title}></p>
         <div className={styles.content}>
-          <img src="https://drop.ndtv.com/albums/BUSINESS/superachievers/5varunsivaram.jpg" alt="" />
-          <p className={styles.name}>Mr Sanjay Kapoor</p>
-          <p className={styles.designation}>Vice president of Exide</p>
-          <p className={styles.comment}>
-            While there is value in this, it can risk a mindset that ignores the power of good reviews too, and the need to respond to them. Positive
-            reinforcement is the core concept here. Happy customers need to be heard just as much as unsatisfied ones. This shows anyone thinking of leaving a
-            review that they will be heard and that their feedback matters to you.
-          </p>
+          <img className={styles.profileImage} src={data.allContentfulReview.nodes[commentIndex].image.fluid.src} alt="" />
+          <p className={styles.name}>{data.allContentfulReview.nodes[commentIndex].authorName}</p>
+          <p className={styles.designation}>{data.allContentfulReview.nodes[commentIndex].authorDesignation}</p>
+          <p className={styles.comment}>{data.allContentfulReview.nodes[commentIndex].comment.comment}</p>
           <div className={styles.buttons}>
-            <button></button>
-            <button></button>
-            <button></button>
-            <button></button>
+            <button onClick={() => commentIndexChange(0)}></button>
+            <button onClick={() => commentIndexChange(1)}></button>
+            <button onClick={() => commentIndexChange(2)}></button>
+            <button onClick={() => commentIndexChange(3)}></button>
           </div>
         </div>
       </div>

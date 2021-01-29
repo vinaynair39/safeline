@@ -1,6 +1,11 @@
 @import "./styles";
 .home {
   .quote {
+    padding-top: 12vh;
+
+    @include media(">tablet") {
+      padding-top: 20vh;
+    }
     .image {
       background-image: url("../images/suit.jpg");
       background-attachment: fixed;
@@ -24,5 +29,131 @@
         top: -24vh;
       }
     }
+  }
+}
+
+.chart,
+.tools,
+.statuary {
+  .image {
+    padding: 0 6vw 0 6vw;
+    @include media(">tablet") {
+      width: 50vw;
+    }
+    padding-top: 6vh;
+    padding-bottom: 6vh;
+  }
+
+  .heading {
+    text-align: center;
+    font-size: 4.8vw;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 4vh;
+    span {
+      border-bottom: 0.3vh solid $green;
+      display: inline-block;
+      height: 7vw;
+      border-radius: 1px;
+    }
+
+    @include media(">tablet") {
+      font-weight: bold;
+      font-size: 4vh;
+      padding-right: 2vw;
+      letter-spacing: 0.16em;
+      span {
+        border-bottom: 4px solid $green;
+        display: inline-block;
+        height: 6vh;
+        border-radius: 2px;
+      }
+    }
+  }
+}
+
+.tools {
+  .image {
+    padding: 0 6vw 0 6vw;
+    @include media(">tablet") {
+      width: 40vw;
+    }
+    padding-top: 6vh;
+    padding-bottom: 6vh;
+  }
+  .content {
+    @include media(">tablet") {
+      padding-left: 7vw;
+    }
+  }
+  .heading {
+    @include media(">tablet") {
+      padding-right: 0;
+    }
+  }
+}
+
+.statuary {
+  .image {
+    padding: 0 6vw 0 6vw;
+    @include media(">tablet") {
+      width: 100%;
+    }
+    padding-top: 6vh;
+    padding-bottom: 6vh;
+  }
+
+  .content {
+    @include media(">tablet") {
+      padding-left: 0;
+    }
+  }
+  .heading {
+    @include media(">tablet") {
+      padding-right: 0;
+    }
+  }
+}
+.projects {
+  margin-top: 6vh;
+
+  .heading {
+    margin-top: 6vh;
+    text-align: center;
+    font-size: 4.8vw;
+    line-height: 144%;
+    text-transform: uppercase;
+    position: relative;
+    letter-spacing: 2px;
+    span {
+      border-bottom: 0.3vh solid $green;
+      display: inline-block;
+      height: 6vw;
+      border-radius: 1px;
+    }
+
+    @include media(">tablet") {
+      margin-top: 10vh;
+
+      font-weight: bold;
+      font-size: 4.4vh;
+      span {
+        border-bottom: 4px solid $green;
+        display: inline-block;
+        height: 6vh;
+        border-radius: 2px;
+      }
+    }
+  }
+
+  .cards {
+    margin-top: 4vh;
+    @include media(">tablet") {
+      margin-top: 10vh;
+    }
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 6vw;
   }
 }

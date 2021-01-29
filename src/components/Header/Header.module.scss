@@ -2,9 +2,10 @@
 
 .header {
   @include flexbox(row, center, space-between);
-  margin: 2vh 6vw;
+  padding: 2vh 6vw;
+  border-bottom: 2px solid $green;
   @include media(">tablet") {
-    margin: 1.4vh 6vw;
+    padding: 1.4vh 6vw;
   }
   .logo {
     @include flexbox(row, center, start);

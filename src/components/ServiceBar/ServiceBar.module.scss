@@ -1,0 +1,66 @@
+@import "../../styles/styles";
+
+.servicebar {
+  padding: 0 6vw;
+  @include media(">tablet") {
+    width: 4px;
+    padding: 0;
+    width: 24vw;
+  }
+  .heading {
+    font-size: 2.4vh;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    position: relative;
+    padding-left: 0.8rem;
+    @include media(">tablet") {
+      font-size: 2.8vh;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      border-radius: 4px;
+      left: 0;
+      top: -0;
+      height: 100%;
+      width: 1vw;
+      background-color: $green;
+      @include media(">tablet") {
+        width: 4px;
+      }
+    }
+  }
+
+  ul {
+    padding-top: 2vh;
+    @include media(">tablet") {
+      padding-top: 3vh;
+    }
+    li {
+      background-color: $black;
+      margin-bottom: 1vh;
+      padding: 0.8vh 0.8rem;
+      border-radius: 4px;
+      transition: all 0.2s ease-in-out;
+
+      a {
+        cursor: pointer;
+        font-size: 2.2vh;
+        letter-spacing: 0.02em;
+        color: white;
+        font-weight: 600;
+      }
+      @include media(">tablet") {
+        padding: 8px 16px 8px 16px;
+        margin-bottom: 0.7vh;
+        a {
+          font-size: 2.4vh;
+        }
+      }
+
+      &:hover {
+        background-color: $green;
+      }
+    }
+  }
+}

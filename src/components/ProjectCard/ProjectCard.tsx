@@ -19,17 +19,15 @@ const ProjectCard: React.FC<Props> = ({ isMobile, image, title, description }) =
             {description.substring(0, 150)} {description.length > 150 ? " ..." : ""}
           </p>
         ) : (
-          <p className={styles.description}>
-            {description.substring(0, 300)} {description.length > 300 ? " ..." : ""}
-          </p>
+          <p className={styles.description}>{description}</p>
         )}
 
         <Link to="/projects" className={styles.button}>
           Explore More
         </Link>
       </div>
-      <div className={styles.image}>
-        <GatsbyImage fluid={image} />
+      <div className={styles.imageCard}>
+        <GatsbyImage fluid={image} className={styles.image} />
       </div>
     </div>
   );

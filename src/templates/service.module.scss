@@ -1,0 +1,131 @@
+@import "../styles/styles";
+.service {
+  .content {
+    .heading {
+      text-align: center;
+      font-size: 4.8vw;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-top: 4vh;
+
+      @include media(">tablet") {
+        span {
+          border-bottom: 0.3vh solid $green;
+          display: inline-block;
+          height: 7vw;
+          border-radius: 1px;
+        }
+
+        font-weight: bold;
+        font-size: 4vh;
+        padding-right: 2vw;
+        letter-spacing: 0.16em;
+        span {
+          border-bottom: 4px solid $green;
+          display: inline-block;
+          height: 6vh;
+          border-radius: 2px;
+        }
+      }
+    }
+
+    .main {
+      align-items: start;
+      margin-top: 3vh;
+      @include media(">tablet") {
+        flex-direction: row;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        margin-top: 8vh;
+      }
+      .text {
+        @include media("<tablet") {
+          width: 100%;
+          padding: 6vw;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          text-align: center;
+          font-size: 2.4vh;
+        }
+        line-height: 144%;
+
+        width: 90%;
+        padding-left: 2vw;
+        font-size: 2.6vh;
+        letter-spacing: 0.5px;
+        font-weight: 600;
+
+        .bottomText {
+          width: 95%;
+          font-size: 2.6vh;
+          letter-spacing: 0.5px;
+          font-weight: 600;
+          padding-top: 2vh;
+          line-height: 144%;
+          padding-bottom: 12vh;
+          @include media("<tablet") {
+            text-align: center;
+            width: 100%;
+            font-size: 2.4vh;
+            padding: 0 6vw 6vh 6vw;
+          }
+        }
+      }
+
+      .button {
+        display: flex;
+      }
+
+      .image {
+        align-items: center;
+        img {
+          border-radius: 8px;
+        }
+        width: 100%;
+        @include media(">tablet") {
+          width: 20vw;
+          padding-bottom: 3vh;
+        }
+        padding-bottom: 6vh;
+        @include media("<tablet") {
+          padding: 0 6vw 0 6vw;
+        }
+
+        button {
+          margin: 0 auto;
+          margin-top: 3vh;
+          svg {
+            height: 2vh;
+          }
+
+          @include media(">tablet") {
+            svg {
+              height: 2.8vh;
+            }
+          }
+          a {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1vh 2vh;
+            color: white;
+            font-size: 2vh;
+            background-color: $green;
+            width: fit-content;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.2s ease-in-out;
+            &:hover {
+              background-color: $black;
+            }
+            &:active {
+              transform: scale(0.95);
+            }
+          }
+        }
+      }
+    }
+  }
+}

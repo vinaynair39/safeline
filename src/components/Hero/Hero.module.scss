@@ -3,6 +3,7 @@
 .hero {
   position: relative;
   text-align: center;
+  transition: all 0.2s ease-in;
   @include media(">tablet") {
     text-align: start;
   }
@@ -12,7 +13,7 @@
     top: 6vh;
     padding: 0 6vw;
     @include media(">tablet") {
-      top: 12vh;
+      top: 14vh;
     }
   }
   .pretitle,
@@ -42,7 +43,7 @@
       font-size: 6.5vh;
       letter-spacing: 4px;
       line-height: 8.6vh;
-      width: 60%;
+      width: 65%;
       margin-top: 0;
       font-weight: bolder;
     }
@@ -88,7 +89,7 @@
         }
       }
 
-      transition: all 0.2s ease-in-out;
+      // transition: all 0.2s ease-in-out;
 
       &:hover {
         transform: scale(1.05);

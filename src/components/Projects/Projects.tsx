@@ -1,9 +1,38 @@
+import { useStaticQuery, graphql } from "gatsby";
 import React, { useState } from "react";
 import ProjectCard from "../ProjectCard/ProjectCard";
 import styles from "./Projects.module.scss";
 
 interface Props {}
 const Projects: React.FC<Props> = ({}) => {
+  const [commentIndex, setCommentIndex] = useState(0);
+  const data = useStaticQuery(graphql`
+    query {
+      allContentfulFeaturedProject(sort: { fields: [serialNumber], order: ASC }) {
+        nodes {
+          title
+          description {
+            description
+          }
+          images {
+            fluid {
+              base64
+              aspectRatio
+              src
+              srcSet
+              sizes
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  const commentIndexChange = (index: number) => {
+    if (data.allContentfulFeaturedProject.nodes.length - 1 >= index) {
+      setCommentIndex(index);
+    }
+  };
   return (
     <div className={styles.projects}>
       <p className={styles.title}>Featured Projects</p>
@@ -12,18 +41,16 @@ const Projects: React.FC<Props> = ({}) => {
       </h1>
 
       <ProjectCard
-        image={{}}
+        image={data.allContentfulFeaturedProject.nodes[commentIndex].images.fluid}
         isMobile={false}
-        title={"BUILDING INTERIOR"}
-        description={
-          "New Substation work including Supply, Erection, New Substation work including Supply, Erection, and Testing Commissioning of outdoor & indoor equipment were incorporated at new panvel sector 16."
-        }
+        title={data.allContentfulFeaturedProject.nodes[commentIndex].title}
+        description={data.allContentfulFeaturedProject.nodes[commentIndex].description.description}
       />
       <div className={styles.buttons}>
-        <button></button>
-        <button></button>
-        <button></button>
-        <button></button>
+        <button onClick={() => commentIndexChange(0)}></button>
+        <button onClick={() => commentIndexChange(1)}></button>
+        <button onClick={() => commentIndexChange(2)}></button>
+        <button onClick={() => commentIndexChange(3)}></button>
       </div>
     </div>
   );

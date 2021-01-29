@@ -1,4 +1,4 @@
-import { Link } from "gatsby";
+import { graphql, Link, useStaticQuery } from "gatsby";
 import classnames from "classnames";
 import React from "react";
 import styles from "./Navbar.module.scss";
@@ -7,6 +7,17 @@ interface Props {
   path: string;
 }
 const Navbar: React.FC<Props> = ({ path }) => {
+  const data = useStaticQuery(graphql`
+    query {
+      allContentfulService(sort: { fields: [serialNumber], order: ASC }) {
+        nodes {
+          slug
+          serviceName
+        }
+      }
+    }
+  `);
+
   return (
     <nav className={styles.navbar}>
       <div className={styles.dropdown}>
@@ -38,42 +49,13 @@ const Navbar: React.FC<Props> = ({ path }) => {
         <div className={styles.menuItem}>
           <a className={classnames(styles.button, { [styles.active]: path === "/services" })}>Services</a>
           <ul>
-            <li>
-              <Link to="/new-sub-station-work">New Sub Station Work</Link>
-            </li>
-            <li>
-              <Link to="/electrical-legal-liasoning">Electrical Legal Liasoning with MSEDCL & PWD</Link>
-            </li>
-            <li>
-              <Link to="/annual-electrical-maintainance">Anual Electrical Maintenance</Link>
-            </li>
-            <li>
-              <Link to="/supply-power-control-panels">Supply Power Control Panels</Link>
-            </li>
-            <li>
-              <Link to="/cabel-tray-fabrication-and-installation">Cable Tray Fabrication & Installation</Link>
-            </li>
-            <li>
-              <Link to="/ht-and-lt-cable-laying">HT/LT Cable Laying</Link>
-            </li>
-            <li>
-              <Link to="/ht-overhead-line-work">HT Overhead Line Work</Link>
-            </li>
-            <li>
-              <Link to="/earthing-system-and-protection">Earthing System/Protection</Link>
-            </li>
-            <li>
-              <Link to="/manpower-outsourcing">Manpower Outsourcing</Link>
-            </li>
-            <li>
-              <Link to="/streetlights-and-warehouse-lighting">Streetlights & Warehouse Lighting</Link>
-            </li>
-            <li>
-              <Link to="/internal-and-external-electrification">Internal & External Electrification</Link>
-            </li>
-            <li>
-              <Link to="/civil-and-mechanical-works">Civil & Mechanical Works</Link>
-            </li>
+            {data.allContentfulService.nodes.map(({ slug, serviceName }: { slug: string; serviceName: string }) => {
+              return (
+                <li>
+                  <Link to={`/${slug}`}>{serviceName}</Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
         <div className={styles.menuItem}>

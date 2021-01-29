@@ -7,14 +7,17 @@ interface Props {}
 const Services: React.FC<Props> = ({}) => {
   const data = useStaticQuery(graphql`
     query MyQuery {
-      allFile(filter: { relativeDirectory: { eq: "services" } }, sort: { fields: relativePath, order: ASC }) {
-        edges {
-          node {
-            childImageSharp {
-              fluid {
-                ...GatsbyImageSharpFluid
-                originalName
-              }
+      allContentfulService(sort: { fields: [serialNumber], order: ASC }) {
+        nodes {
+          serviceName
+          slug
+          image {
+            fluid {
+              base64
+              aspectRatio
+              src
+              srcSet
+              sizes
             }
           }
         }
@@ -29,11 +32,8 @@ const Services: React.FC<Props> = ({}) => {
       </h1>
       <div className={styles.description}>We are a team of professionals and skilled experts and we offer a wide range of services & solutions</div>
       <div className={styles.cards}>
-        {data.allFile.edges.map(({ node }: any) => {
-          const image = node.childImageSharp.fluid;
-          let title = node.childImageSharp.fluid.originalName.split(".")[0];
-          title = title.replace(/[0-9]/g, "").trim();
-          return <Card image={image} title={title} />;
+        {data.allContentfulService.nodes.map(({ serviceName, image, slug }: { serviceName: string; image: any; slug: string }) => {
+          return <Card image={image.fluid} title={serviceName} slug={slug} type={"SERVICES"} />;
         })}
       </div>
     </div>
