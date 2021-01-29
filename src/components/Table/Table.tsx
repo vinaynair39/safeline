@@ -3,10 +3,11 @@ import styles from "./Table.module.scss";
 
 interface Props {
   data: string[][];
+  stretch: boolean;
 }
-const Table: React.FC<Props> = ({ data }) => {
+const Table: React.FC<Props> = ({ data, stretch = false }) => {
   return (
-    <div className={styles.table}>
+    <div className={stretch ? styles.tableStretch : styles.table}>
       <ul>
         {data.map((item) => (
           <li>

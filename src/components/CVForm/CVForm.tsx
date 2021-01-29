@@ -1,53 +1,52 @@
-import React, { useState } from "react";
-import { useForm } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
-import Arrow from "../../assets/arrow.svg";
-import Telephone from "../../assets/telephone.svg";
-
-import styles from "./QuoteForm.module.scss";
 import classNames from "classnames";
+import React, { useState } from "react";
+import Arrow from "../../assets/arrow.svg";
+
+import { useForm } from "react-hook-form";
+import styles from "./CVForm.module.scss";
 
 type Inputs = {
   name: string;
   email: string;
   phone: number;
   zip: number;
-  service: string;
+  cv: File;
   comment: string;
 };
-
-interface Props {
-  stretch: boolean;
+function getBase64(file: File) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = (error) => reject(error);
+  });
 }
-const QuoteForm: React.FC<Props> = ({ stretch }) => {
+
+interface Props {}
+const CVForm: React.FC<Props> = ({}) => {
   const { register, handleSubmit, errors } = useForm<Inputs>();
   const [loading, setLoading] = useState(false);
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 3000);
-    console.log(data);
+    const resume = await getBase64(data.resume[0]);
+    const extension = data.resume[0].type === "image/jpeg" ? "jpg" : data.resume[0].type.split("/")[1];
+    console.log({
+      ...data,
+      resume: {
+        data: resume,
+        extension,
+      },
+    });
+    setLoading(false);
   };
-  return (
-    <div className={classNames(styles.quoteForm, { [styles.quoteFormStretch]: stretch })}>
-      <div className={styles.info}>
-        <h2 className={styles.heading}>Our Location</h2>
-        <p className={styles.content}>
-          Plot No.ISP -10, Opposite Sanghi Organization, Near Petrol Pump, MIDC Taloja Industrial Area, Navi Mumbai, 410208, Maharashtra, India
-        </p>
-        <h2 className={styles.heading}>Our Email ID</h2>
-        <p className={styles.content}>safelineelectricals@gmail.com</p>
 
-        <h2 className={styles.call}>We will get back to you within 24 hours, or call us everyday, 10:00 AM - 06:00 PM</h2>
-        <p className={styles.heading2}>
-          <Telephone /> +91-8425846364
-        </p>
-      </div>
+  return (
+    <div className={classNames(styles.cvForm)}>
       <div className={styles.form}>
         <div className={styles.title}>
-          <p>Free Consultation</p>
-          <h1>Get a free Quote</h1>
+          <p>Career with us</p>
+          <h1>SEND US YOUR RESUME</h1>
         </div>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className={styles.first}>
@@ -84,17 +83,19 @@ const QuoteForm: React.FC<Props> = ({ stretch }) => {
             <input name="zip" placeholder="Your Zip Code" ref={register({ required: "Your zip code is required" })} />
           </div>
           <div className={styles.third}>
-            <input name="service" placeholder="Name of the service that you want" ref={register({ required: "Please enter which service you want." })} />
+            <>
+              <input type="file" name="resume" ref={register({ required: "Your resume is required" })} />
+            </>
           </div>
           <div className={styles.fourth}>
-            <textarea name="comment" placeholder="Tell us more about your requirements" ref={register({ required: false })} rows={10} />
+            <textarea name="comment" placeholder="Tell us something about yourself" ref={register({ required: false })} rows={10} />
           </div>
           <div className={styles.errors}>
             <ErrorMessage errors={errors} name="name" render={({ message }) => <p className={styles.error}>{message}</p>} />
             <ErrorMessage errors={errors} name="phone" render={({ message }) => <p className={styles.error}>{message}</p>} />
             <ErrorMessage errors={errors} name="email" render={({ message }) => <p className={styles.error}>{message}</p>} />
             <ErrorMessage errors={errors} name="zip" render={({ message }) => <p className={styles.error}>{message}</p>} />
-            <ErrorMessage errors={errors} name="service" render={({ message }) => <p className={styles.error}>{message}</p>} />
+            <ErrorMessage errors={errors} name="resume" render={({ message }) => <p className={styles.error}>{message}</p>} />
             <ErrorMessage errors={errors} name="comment" render={({ message }) => <p className={styles.error}>{message}</p>} />
           </div>
           <button type="submit" disabled={loading}>
@@ -105,4 +106,4 @@ const QuoteForm: React.FC<Props> = ({ stretch }) => {
     </div>
   );
 };
-export default QuoteForm;
+export default CVForm;

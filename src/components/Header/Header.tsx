@@ -35,7 +35,7 @@ const Header: React.FC<Props> = ({ path }) => {
           Safeline <span>Electricals</span>
         </p>
       </Link>
-      <MobileNav isOpen={isOpen} path={path} setOpen={setOpen} />
+      {/* <MobileNav isOpen={isOpen} path={path} setOpen={setOpen} /> */}
       <div className={styles.info}>
         <div className={styles.telephone}>
           <Telephone />

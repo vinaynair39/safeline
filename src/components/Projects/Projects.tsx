@@ -41,10 +41,11 @@ const Projects: React.FC<Props> = ({}) => {
       </h1>
 
       <ProjectCard
-        image={data.allContentfulFeaturedProject.nodes[commentIndex].images.fluid}
+        image={data.allContentfulFeaturedProject.nodes[commentIndex].images}
         isMobile={false}
         title={data.allContentfulFeaturedProject.nodes[commentIndex].title}
         description={data.allContentfulFeaturedProject.nodes[commentIndex].description.description}
+        exploreMore={true}
       />
       <div className={styles.buttons}>
         <button onClick={() => commentIndexChange(0)}></button>

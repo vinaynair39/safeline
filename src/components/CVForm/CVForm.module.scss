@@ -1,57 +1,5 @@
 @import "../../styles/styles";
-
-.quoteForm,
-.quoteFormStretch {
-  .info {
-    display: none;
-  }
-  @include media(">tablet") {
-    @include flexbox(row, flex-start, space-between);
-    background-color: $black;
-    border-radius: 8px;
-    box-sizing: border-box;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    .info {
-      display: block;
-      height: 73vh;
-      width: 22vw;
-      background-color: $green;
-      border-radius: 8px;
-      margin: 4vw;
-      padding: 2vw;
-      margin-right: 0;
-      .heading,
-      .heading2 {
-        color: white;
-        font-weight: bold;
-        font-size: 3.2vh;
-      }
-      .heading2 {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        font-size: 3vh;
-        svg {
-          path {
-            fill: white;
-          }
-        }
-        margin-top: 5vh;
-      }
-      .content {
-        color: white;
-        margin-top: 1vh;
-        margin-bottom: 4vh;
-        font-size: 2.6vh;
-      }
-      .call {
-        font-weight: 500;
-        color: white;
-        font-size: 2.8vh;
-      }
-    }
-  }
-
+.cvForm {
   .form {
     background-color: $black;
     width: fit-content;
@@ -138,13 +86,23 @@
     }
 
     .third {
-      width: 100%;
-      & input {
+      display: flex;
+      input {
+        padding: 0;
         width: 100%;
+        margin-right: 0;
       }
-      @include media("<tablet") {
-        width: 80vw;
-      }
+    }
+
+    ::-webkit-file-upload-button {
+      color: white;
+      background-color: $green;
+      border: none;
+      outline: none;
+      padding: 1vh 2vw;
+      height: 6vh;
+      margin-right: 2vw;
+      cursor: pointer;
     }
 
     .fourth {
@@ -209,45 +167,6 @@
     .error {
       color: #f2c94c;
       font-weight: 600;
-    }
-  }
-}
-
-.quoteFormStretch {
-  border-radius: 0;
-  .form {
-    @include media(">tablet") {
-      width: 100%;
-      border-radius: 0;
-      input {
-        height: 7vh;
-        font-size: 2.4vh;
-        padding: 1.5rem;
-      }
-      .first,
-      .second {
-        width: 60vw;
-        & input {
-          width: 40%;
-        }
-      }
-
-      .third {
-        width: 60vw;
-        & input {
-          width: 83.5%;
-        }
-        @include media("<tablet") {
-          width: 80vw;
-        }
-      }
-
-      .fourth {
-        width: 60vw;
-        textarea {
-          width: 83.5%;
-        }
-      }
     }
   }
 }

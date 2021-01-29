@@ -1,0 +1,54 @@
+@import "../styles/styles";
+
+.projects {
+  margin-top: 6vh;
+
+  .other {
+    .heading {
+      margin-top: 8vh;
+      margin-bottom: 6vh;
+    }
+  }
+  .heading {
+    margin-top: 6vh;
+    text-align: center;
+    font-size: 4.8vw;
+    line-height: 144%;
+    text-transform: uppercase;
+    position: relative;
+    letter-spacing: 2px;
+    margin-bottom: 6vh;
+
+    span {
+      border-bottom: 0.3vh solid $green;
+      display: inline-block;
+      height: 6vw;
+      border-radius: 1px;
+    }
+
+    @include media(">tablet") {
+      margin-top: 8vh;
+      margin-bottom: 16vh;
+      font-weight: bold;
+      font-size: 4.4vh;
+      span {
+        border-bottom: 4px solid $green;
+        display: inline-block;
+        height: 6vh;
+        border-radius: 2px;
+      }
+    }
+  }
+
+  .cards {
+    margin-top: 4vh;
+    @include media(">tablet") {
+      margin-top: 10vh;
+      margin-bottom: 10vh;
+    }
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 6vw;
+  }
+}

@@ -15,7 +15,6 @@
     min-height: 60vh;
   }
   & .imageCard {
-    // box-sizing: border-box;
     height: fit-content;
     width: 100%;
     background-color: $green;
@@ -29,9 +28,11 @@
       padding: 5vh 5vw;
       display: grid;
       align-items: center;
+      height: fit-content;
     }
     & .image {
       border-radius: 4px;
+      max-height: 60vh;
     }
   }
   .content {
@@ -48,7 +49,7 @@
     @include media(">tablet") {
       width: 60vw;
       // border-radius: 8px;
-      padding: 2vh;
+      padding: 4vh 2vh;
       min-height: 70vh;
       height: 100%;
     }
@@ -79,6 +80,7 @@
         left: -5vw;
         width: 75%;
         line-height: 154%;
+        padding-top: 4vh;
       }
     }
     .button {
@@ -91,6 +93,8 @@
         font-size: 2.6vh;
         font-weight: 700;
         position: relative;
+        padding-top: 4vh;
+
         left: -5vw;
       }
     }

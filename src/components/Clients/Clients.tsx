@@ -32,6 +32,7 @@ const Clients: React.FC<Props> = ({}) => {
           }
         }
       }
+
       allContentfulReview {
         nodes {
           authorName

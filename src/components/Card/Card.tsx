@@ -10,18 +10,19 @@ interface Props {
   type: string;
 }
 const Card: React.FC<Props> = ({ image, title, slug, type = "SERVICE" }) => {
+  const route = type === "PROJECT" ? `/projects/${slug}` : `/${slug}`;
   return (
-    <Link to={slug} className={styles.card}>
+    <Link to={route} className={styles.card}>
       <div className={styles.image}>
         <Img fluid={image} className={styles.imageTag} />
       </div>
       <div className={styles.content}>
-        <Link to={slug} className={styles.title}>
+        <Link to={route} className={styles.title}>
           {title}
         </Link>
         <div>
           <button>
-            <Link to={slug}>{type === "SERVICE" ? "View Service" : "View Project"}</Link>
+            <Link to={route}>{type === "SERVICE" ? "View Service" : "View Project"}</Link>
           </button>
         </div>
       </div>
