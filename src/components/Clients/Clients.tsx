@@ -4,6 +4,7 @@ import GatsbyImage from "gatsby-image";
 import React from "react";
 import { useState } from "react";
 import Carousel from "react-multi-carousel";
+import SlipInWhenVisible from "../SlipInWhenVisible/SlipInWhenVisible";
 import styles from "./Clients.module.scss";
 
 const responsive = {
@@ -63,9 +64,11 @@ const Clients: React.FC<Props> = ({}) => {
 
   return (
     <div className={styles.clients}>
-      <h1 className={styles.heading}>
-        Our <span>Clients</span>
-      </h1>
+      <SlipInWhenVisible>
+        <h1 className={styles.heading}>
+          Our <span>Clients</span>
+        </h1>
+      </SlipInWhenVisible>
       <div className={styles.slider}>
         <div className={styles.slideTrack}>
           {data.allFile.edges.map(({ node }: any) => {

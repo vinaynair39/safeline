@@ -3,6 +3,7 @@ import GatsbyImage from "gatsby-image";
 import React from "react";
 import Layout from "../components/Layout/Layout";
 import SecondaryLayout from "../components/SecondaryLayout/SecondaryLayout";
+import SlipInWhenVisible from "../components/SlipInWhenVisible/SlipInWhenVisible";
 import styles from "../styles/index.module.scss";
 
 const tools: React.FC<PageProps> = ({ path }) => {
@@ -22,14 +23,16 @@ const tools: React.FC<PageProps> = ({ path }) => {
     <Layout path={path}>
       <div className={styles.tools}>
         <SecondaryLayout>
-          <div className={styles.content}>
-            <h1 className={styles.heading}>
-              <span>List of Tools and Plants</span>
-            </h1>
-            <div className={styles.image}>
-              <GatsbyImage fluid={data.chart.childImageSharp.fluid} />
+          <SlipInWhenVisible>
+            <div className={styles.content}>
+              <h1 className={styles.heading}>
+                <span>List of Tools and Plants</span>
+              </h1>
+              <div className={styles.image}>
+                <GatsbyImage fluid={data.chart.childImageSharp.fluid} />
+              </div>
             </div>
-          </div>
+          </SlipInWhenVisible>
         </SecondaryLayout>
       </div>
     </Layout>

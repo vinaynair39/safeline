@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import styles from "./CVForm.module.scss";
 import axios from "axios";
 import Modal from "../Modal/Modal";
+import SlipInRightWhenVisible from "../SlipInWhenVisible/SlipInRightWhenVisible";
 
 type Inputs = {
   name: string;
@@ -49,69 +50,71 @@ const CVForm: React.FC<Props> = ({}) => {
     e.target.reset(); // reset after form submit  };
   };
   return (
-    <div className={classNames(styles.cvForm)}>
-      <Modal showModal={showModal} setShowModal={setShowModal} modalText={modalText} />
-      <div className={styles.form}>
-        <div className={styles.title}>
-          <p>Career with us</p>
-          <h1>SEND US YOUR RESUME</h1>
-        </div>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <div className={styles.first}>
-            <input name="name" placeholder="Your Full Name" ref={register({ required: "Your name is required" })} />
-            <input
-              name="email"
-              placeholder="Your Email ID"
-              ref={register({
-                required: "your email id is required.",
-                pattern: {
-                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                  message: "Invalid Email",
-                },
-              })}
-            />
+    <SlipInRightWhenVisible>
+      <div className={classNames(styles.cvForm)}>
+        <Modal showModal={showModal} setShowModal={setShowModal} modalText={modalText} />
+        <div className={styles.form}>
+          <div className={styles.title}>
+            <p>Career with us</p>
+            <h1>SEND US YOUR RESUME</h1>
           </div>
-          <div className={styles.second}>
-            <input
-              name="phone"
-              placeholder="Your Phone Number"
-              ref={register({
-                required: "Your phone number is required.",
-                maxLength: {
-                  value: 10,
-                  message: "This input exceed 10 digits.",
-                },
-                minLength: {
-                  value: 10,
-                  message: "Your number should be of 10 digits",
-                },
-              })}
-            />
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div className={styles.first}>
+              <input name="name" placeholder="Your Full Name" ref={register({ required: "Your name is required" })} />
+              <input
+                name="email"
+                placeholder="Your Email ID"
+                ref={register({
+                  required: "your email id is required.",
+                  pattern: {
+                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                    message: "Invalid Email",
+                  },
+                })}
+              />
+            </div>
+            <div className={styles.second}>
+              <input
+                name="phone"
+                placeholder="Your Phone Number"
+                ref={register({
+                  required: "Your phone number is required.",
+                  maxLength: {
+                    value: 10,
+                    message: "This input exceed 10 digits.",
+                  },
+                  minLength: {
+                    value: 10,
+                    message: "Your number should be of 10 digits",
+                  },
+                })}
+              />
 
-            <input name="zip" placeholder="Your Zip Code" ref={register({ required: "Your zip code is required" })} />
-          </div>
-          <div className={styles.third}>
-            <>
-              <input type="file" name="resume" ref={register({ required: "Your resume is required" })} />
-            </>
-          </div>
-          <div className={styles.fourth}>
-            <textarea name="message" placeholder="Tell us something about yourself" ref={register({ required: false })} rows={10} />
-          </div>
-          <div className={styles.errors}>
-            <ErrorMessage errors={errors} name="name" render={({ message }) => <p className={styles.error}>{message}</p>} />
-            <ErrorMessage errors={errors} name="phone" render={({ message }) => <p className={styles.error}>{message}</p>} />
-            <ErrorMessage errors={errors} name="email" render={({ message }) => <p className={styles.error}>{message}</p>} />
-            <ErrorMessage errors={errors} name="zip" render={({ message }) => <p className={styles.error}>{message}</p>} />
-            <ErrorMessage errors={errors} name="resume" render={({ message }) => <p className={styles.error}>{message}</p>} />
-            <ErrorMessage errors={errors} name="message" render={({ message }) => <p className={styles.error}>{message}</p>} />
-          </div>
-          <button type="submit" disabled={loading}>
-            Submit <Arrow />
-          </button>
-        </form>
+              <input name="zip" placeholder="Your Zip Code" ref={register({ required: "Your zip code is required" })} />
+            </div>
+            <div className={styles.third}>
+              <>
+                <input type="file" name="resume" ref={register({ required: "Your resume is required" })} />
+              </>
+            </div>
+            <div className={styles.fourth}>
+              <textarea name="message" placeholder="Tell us something about yourself" ref={register({ required: false })} rows={10} />
+            </div>
+            <div className={styles.errors}>
+              <ErrorMessage errors={errors} name="name" render={({ message }) => <p className={styles.error}>{message}</p>} />
+              <ErrorMessage errors={errors} name="phone" render={({ message }) => <p className={styles.error}>{message}</p>} />
+              <ErrorMessage errors={errors} name="email" render={({ message }) => <p className={styles.error}>{message}</p>} />
+              <ErrorMessage errors={errors} name="zip" render={({ message }) => <p className={styles.error}>{message}</p>} />
+              <ErrorMessage errors={errors} name="resume" render={({ message }) => <p className={styles.error}>{message}</p>} />
+              <ErrorMessage errors={errors} name="message" render={({ message }) => <p className={styles.error}>{message}</p>} />
+            </div>
+            <button type="submit" disabled={loading}>
+              Submit <Arrow />
+            </button>
+          </form>
+        </div>
       </div>
-    </div>
+    </SlipInRightWhenVisible>
   );
 };
 export default CVForm;

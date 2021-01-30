@@ -5,6 +5,7 @@ import Layout from "../components/Layout/Layout";
 import Arrow from "../assets/arrow.svg";
 import SecondaryLayout from "../components/SecondaryLayout/SecondaryLayout";
 import styles from "./service.module.scss";
+import SlipInWhenVisible from "../components/SlipInWhenVisible/SlipInWhenVisible";
 
 export const query = graphql`
   query($slug: String!) {
@@ -35,30 +36,32 @@ const service: React.FC<PageProps> = ({ data, path }: { data: any; path: string 
     <Layout path={path}>
       <div id="services" className={styles.service}>
         <SecondaryLayout>
-          <div className={styles.content}>
-            <h1 className={styles.heading}>
-              <span>{data.contentfulService.serviceName}</span>
-            </h1>
-            <div className={styles.main}>
-              <div className={styles.image}>
-                <GatsbyImage fluid={data.contentfulService.image.fluid} />
-                <div className={styles.button}>
-                  <button>
-                    <a href="#quoteForm">
-                      Enquire Us
-                      <Arrow />
-                    </a>
-                  </button>
+          <SlipInWhenVisible>
+            <div className={styles.content}>
+              <h1 className={styles.heading}>
+                <span>{data.contentfulService.serviceName}</span>
+              </h1>
+              <div className={styles.main}>
+                <div className={styles.image}>
+                  <GatsbyImage fluid={data.contentfulService.image.fluid} />
+                  <div className={styles.button}>
+                    <button>
+                      <a href="#quoteForm">
+                        Enquire Us
+                        <Arrow />
+                      </a>
+                    </button>
+                  </div>
+                </div>
+                <div className={styles.text}>
+                  <p>{data.contentfulService.primaryDescription.primaryDescription}</p>
+                  {!!data.contentfulService.secondaryDescription && (
+                    <p className={styles.bottomText}>{data.contentfulService.secondaryDescription.secondaryDescription}</p>
+                  )}
                 </div>
               </div>
-              <div className={styles.text}>
-                <p>{data.contentfulService.primaryDescription.primaryDescription}</p>
-                {!!data.contentfulService.secondaryDescription && (
-                  <p className={styles.bottomText}>{data.contentfulService.secondaryDescription.secondaryDescription}</p>
-                )}
-              </div>
             </div>
-          </div>
+          </SlipInWhenVisible>
         </SecondaryLayout>
       </div>
     </Layout>

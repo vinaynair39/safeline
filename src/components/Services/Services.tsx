@@ -1,6 +1,8 @@
 import { useStaticQuery, graphql } from "gatsby";
 import React, { useState } from "react";
 import Card from "../Card/Card";
+import FadeInWhenVisible from "../FadeInWhenVisible/FadeInWhenVisible";
+import SlipInWhenVisible from "../SlipInWhenVisible/SlipInWhenVisible";
 import styles from "./Services.module.scss";
 
 interface Props {}
@@ -27,9 +29,12 @@ const Services: React.FC<Props> = ({}) => {
 
   return (
     <div className={styles.services} id="services">
-      <h1 className={styles.heading}>
-        Our <span>Services</span>
-      </h1>
+      <SlipInWhenVisible>
+        <h1 className={styles.heading}>
+          Our <span>Services</span>
+        </h1>
+      </SlipInWhenVisible>
+
       <div className={styles.description}>We are a team of professionals and skilled experts and we offer a wide range of services & solutions</div>
       <div className={styles.cards}>
         {data.allContentfulService.nodes.map(({ serviceName, image, slug }: { serviceName: string; image: any; slug: string }) => {

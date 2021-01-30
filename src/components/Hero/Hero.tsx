@@ -6,7 +6,20 @@ import Slider from "infinite-react-carousel";
 import { AnimatePresence, motion } from "framer-motion";
 import { useStaticQuery, graphql } from "gatsby";
 
-const transition = { duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96] };
+const containerAnimation = {
+  from: {
+    x: -130,
+    opacity: 0,
+  },
+  to: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      duration: 1,
+      staggerChildren: 1.5,
+    },
+  },
+};
 
 interface Props {}
 const Hero: React.FC<Props> = ({}) => {
@@ -68,44 +81,78 @@ const Hero: React.FC<Props> = ({}) => {
   };
 
   return (
-    <Slider autoplay arrows={false} autoplaySpeed={8000} duration={350} pauseOnHover={false}>
-      <div className={styles.hero}>
-        <div>
-          <Img className={styles.image} fluid={source1.images} />
+    <>
+      <Slider autoplay arrows={false} autoplaySpeed={8000} duration={350} pauseOnHover={false}>
+        <div className={styles.hero}>
+          <div>
+            <Img className={styles.image} fluid={source1.images} />
+          </div>
+          <AnimatePresence exitBeforeEnter>
+            <motion.div variants={containerAnimation} animate="to" initial="from" className={styles.content}>
+              <motion.p variants={containerAnimation} className={styles.pretitle}>
+                {source1.pretitle}
+              </motion.p>
+              <motion.p variants={containerAnimation} className={styles.title}>
+                {source1.title}
+              </motion.p>
+              <motion.div variants={containerAnimation} className={styles.buttons}>
+                <motion.a
+                  whileHover={{
+                    scale: 1.05,
+                  }}
+                  whileTap={{ scale: 0.9 }}
+                  href="#quoteForm"
+                  className={styles.primary}
+                >
+                  Get A Quote <Arrow />
+                </motion.a>
+                <motion.a
+                  whileHover={{
+                    scale: 1.05,
+                  }}
+                  whileTap={{ scale: 0.9 }}
+                  href="#services"
+                  className={styles.secondary}
+                >
+                  Our Services
+                  <Arrow />
+                </motion.a>
+              </motion.div>
+            </motion.div>
+          </AnimatePresence>
         </div>
-        <div className={styles.content}>
-          <p className={styles.pretitle}>{source1.pretitle}</p>
-          <motion.p transition={transition} exit={{ opacity: 0 }} className={styles.title}>
-            {source1.title}
-          </motion.p>
-          <div className={styles.buttons}>
-            <a href="#quoteForm" className={styles.primary}>
-              Get A Quote <Arrow />
-            </a>
-            <a href="#services" className={styles.secondary}>
-              Our Services
-              <Arrow />
-            </a>
+        <div className={styles.hero}>
+          <Img className={styles.image} fluid={source2.images} />
+          <div className={styles.content}>
+            <p className={styles.pretitle}>{source2.pretitle}</p>
+            <p className={styles.title}>{source2.title}</p>
+            <motion.div className={styles.buttons}>
+              <motion.a
+                whileHover={{
+                  scale: 1.05,
+                }}
+                whileTap={{ scale: 0.9 }}
+                href="#quoteForm"
+                className={styles.primary}
+              >
+                Get A Quote <Arrow />
+              </motion.a>
+              <motion.a
+                whileHover={{
+                  scale: 1.05,
+                }}
+                whileTap={{ scale: 0.9 }}
+                href="#services"
+                className={styles.secondary}
+              >
+                Our Services
+                <Arrow />
+              </motion.a>
+            </motion.div>
           </div>
         </div>
-      </div>
-      <div className={styles.hero}>
-        <Img className={styles.image} fluid={source2.images} />
-        <div className={styles.content}>
-          <p className={styles.pretitle}>{source2.pretitle}</p>
-          <p className={styles.title}>{source2.title}</p>
-          <div className={styles.buttons}>
-            <a href="#quoteForm" className={styles.primary}>
-              Get A Quote <Arrow />
-            </a>
-            <a href="#services" className={styles.secondary}>
-              Our Services
-              <Arrow />
-            </a>
-          </div>
-        </div>
-      </div>
-    </Slider>
+      </Slider>
+    </>
   );
 };
 export default Hero;

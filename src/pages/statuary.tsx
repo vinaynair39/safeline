@@ -4,6 +4,7 @@ import Layout from "../components/Layout/Layout";
 import QuoteForm from "../components/QuoteForm/QuoteForm";
 import SecondaryLayout from "../components/SecondaryLayout/SecondaryLayout";
 import ServiceBar from "../components/ServiceBar/ServiceBar";
+import SlipInWhenVisible from "../components/SlipInWhenVisible/SlipInWhenVisible";
 import Table from "../components/Table/Table";
 import styles from "../styles/index.module.scss";
 
@@ -29,14 +30,16 @@ const statuary: React.FC<PageProps> = ({ path }) => {
     <Layout path={path}>
       <div className={styles.statuary}>
         <SecondaryLayout>
-          <div className={styles.content}>
-            <h1 className={styles.heading}>
-              <span>Statuary Details</span>
-            </h1>
-            <div className={styles.image}>
-              <Table data={data} />
+          <SlipInWhenVisible>
+            <div className={styles.content}>
+              <h1 className={styles.heading}>
+                <span>Statuary Details</span>
+              </h1>
+              <div className={styles.image}>
+                <Table data={data} stretch={false} />
+              </div>
             </div>
-          </div>
+          </SlipInWhenVisible>
         </SecondaryLayout>
       </div>
     </Layout>

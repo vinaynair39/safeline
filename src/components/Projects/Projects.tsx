@@ -1,6 +1,7 @@
 import { useStaticQuery, graphql } from "gatsby";
 import React, { useState } from "react";
 import ProjectCard from "../ProjectCard/ProjectCard";
+import SlipInWhenVisible from "../SlipInWhenVisible/SlipInWhenVisible";
 import styles from "./Projects.module.scss";
 
 interface Props {
@@ -37,10 +38,12 @@ const Projects: React.FC<Props> = ({ exploreMore }) => {
   };
   return (
     <div className={styles.projects}>
-      <p className={styles.title}>Featured Projects</p>
-      <h1 className={styles.heading}>
-        Our Recent <span>Works</span>
-      </h1>
+      <SlipInWhenVisible>
+        <p className={styles.title}>Featured Projects</p>
+        <h1 className={styles.heading}>
+          Our Recent <span>Works</span>
+        </h1>
+      </SlipInWhenVisible>
 
       <ProjectCard
         image={data.allContentfulFeaturedProject.nodes[commentIndex].images}
