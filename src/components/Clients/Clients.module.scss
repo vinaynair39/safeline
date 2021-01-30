@@ -1,7 +1,19 @@
 @import "../../styles/styles";
 
+$animationSpeed: 40s;
+
+// Animation
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-350px * 7));
+  }
+}
+
 .clients {
-  margin-top: 12vh;
+  margin-top: 7vh;
   padding: 0 6vw;
   @include media(">tablet") {
     margin-top: 16vh;
@@ -32,20 +44,50 @@
     }
   }
 
-  .images {
-    padding-top: 6vh;
-    padding-bottom: 6vh;
-
-    @include media(">tablet") {
-      padding-top: 12vh;
-      padding-bottom: 12vh;
+  .slider {
+    background: white;
+    height: fit-content;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    &::before,
+    &::after {
+      content: "";
+      height: 100px;
+      position: absolute;
+      width: 200px;
+      z-index: 2;
     }
-  }
 
-  .item {
-    margin: auto 2vw;
-    @include media(">tablet") {
-      width: 10.2vw;
+    &::after {
+      right: 0;
+      top: 0;
+      transform: rotateZ(180deg);
+    }
+
+    &::before {
+      left: 0;
+      top: 0;
+    }
+
+    .slideTrack {
+      animation: scroll $animationSpeed linear infinite;
+      display: flex;
+      width: calc(350px * 14);
+      padding-top: 4vh;
+      padding-bottom: 4vh;
+      @include media(">tablet") {
+        padding-top: 12vh;
+        padding-bottom: 12vh;
+      }
+      .slide {
+        margin: auto 2vw;
+        width: 30vw;
+        @include media(">tablet") {
+          width: 20vw;
+        }
+      }
     }
   }
 
@@ -62,15 +104,16 @@
       }
     }
     .content {
-      margin-top: 3vh;
       letter-spacing: 1px;
-      img {
+      .profileImage {
         width: 20vw;
+        height: 20vw;
         border-radius: 100%;
-
+        object-fit: cover;
         @include media(">tablet") {
-          width: 6vw;
-          height: 6vw;
+          width: 12vh;
+          height: 12vh;
+          object-fit: cover;
         }
       }
       .name {
@@ -105,9 +148,9 @@
         display: flex;
         justify-content: center;
         margin-top: 2vh;
-        padding-bottom: 12vh;
+        margin-bottom: 12vh;
         @include media(">tablet") {
-          padding-bottom: 20vh;
+          margin-bottom: 16vh;
         }
         button {
           background-color: $green;

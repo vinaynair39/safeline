@@ -9,7 +9,7 @@ import styles from "./WelcomeInfo.module.scss";
 interface Props {}
 const WelcomeInfo: React.FC<Props> = ({}) => {
   return (
-    <div className={styles.welcomeInfo}>
+    <div id="welcomeInfo" className={styles.welcomeInfo}>
       <h1 className={styles.heading}>
         welcome to <span>safeline</span> electricals
       </h1>

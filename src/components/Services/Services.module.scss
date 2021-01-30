@@ -5,18 +5,18 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 12vh 6vw 6vh 6vw;
+  margin: 6vh 6vw;
   @include media(">tablet") {
-    margin: 12vh 6vw 0 6vw;
+    margin: 16.5vh 6vw 0 6vw;
   }
   .cards {
     margin-top: 4vh;
-    @include media(">tablet") {
-      margin-top: 10vh;
-    }
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    @include media(">tablet") {
+      margin-top: 8vh;
+    }
   }
 
   .description {
@@ -40,7 +40,7 @@
     text-transform: uppercase;
     position: relative;
     letter-spacing: 2px;
-    margin-top: 6vh;
+    margin-top: 4vh;
     span {
       border-bottom: 0.3vh solid $green;
       display: inline-block;
@@ -49,6 +49,7 @@
     }
 
     @include media(">tablet") {
+      margin-top: 6vh;
       font-weight: bold;
       font-size: 4.4vh;
       span {

@@ -43,7 +43,7 @@
       font-size: 6.5vh;
       letter-spacing: 4px;
       line-height: 8.6vh;
-      width: 65%;
+      width: 55%;
       margin-top: 0;
       font-weight: bolder;
     }
@@ -92,7 +92,8 @@
       // transition: all 0.2s ease-in-out;
 
       &:hover {
-        transform: scale(1.05);
+        background-color: $black;
+        color: white;
       }
     }
     .secondary {

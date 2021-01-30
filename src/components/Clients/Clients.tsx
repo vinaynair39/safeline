@@ -1,3 +1,4 @@
+import { AnimatePresence, motion } from "framer-motion";
 import { useStaticQuery, graphql } from "gatsby";
 import GatsbyImage from "gatsby-image";
 import React from "react";
@@ -65,44 +66,36 @@ const Clients: React.FC<Props> = ({}) => {
       <h1 className={styles.heading}>
         Our <span>Clients</span>
       </h1>
-      <div className={styles.images}>
-        <Carousel
-          swipeable={false}
-          draggable={false}
-          responsive={responsive}
-          infinite={true}
-          autoPlay={true}
-          autoPlaySpeed={10}
-          transitionDuration={1000}
-          removeArrowOnDeviceType={["mobile", "desktop"]}
-          deviceType={"desktop"}
-          itemClass={styles.item}
-        >
-          {data.allFile.edges.map(({ node }: any, index: number) => {
+      <div className={styles.slider}>
+        <div className={styles.slideTrack}>
+          {data.allFile.edges.map(({ node }: any) => {
             const image = node.childImageSharp.fluid;
             return (
-              <div className={styles.item} data-value={index}>
+              <div className={styles.slide}>
                 <GatsbyImage fluid={image} />
               </div>
             );
           })}
-        </Carousel>
-      </div>
-      <div className={styles.reviews}>
-        <p className={styles.title}></p>
-        <div className={styles.content}>
-          <img className={styles.profileImage} src={data.allContentfulReview.nodes[commentIndex].image.fluid.src} alt="" />
-          <p className={styles.name}>{data.allContentfulReview.nodes[commentIndex].authorName}</p>
-          <p className={styles.designation}>{data.allContentfulReview.nodes[commentIndex].authorDesignation}</p>
-          <p className={styles.comment}>{data.allContentfulReview.nodes[commentIndex].comment.comment}</p>
-          <div className={styles.buttons}>
-            <button onClick={() => commentIndexChange(0)}></button>
-            <button onClick={() => commentIndexChange(1)}></button>
-            <button onClick={() => commentIndexChange(2)}></button>
-            <button onClick={() => commentIndexChange(3)}></button>
-          </div>
         </div>
       </div>
+
+      <AnimatePresence exitBeforeEnter>
+        <motion.div className={styles.reviews} exit={{ x: -1000 }}>
+          <p className={styles.title}></p>
+          <div className={styles.content}>
+            <img className={styles.profileImage} src={data.allContentfulReview.nodes[commentIndex].image.fluid.src} alt="" />
+            <p className={styles.name}>{data.allContentfulReview.nodes[commentIndex].authorName}</p>
+            <p className={styles.designation}>{data.allContentfulReview.nodes[commentIndex].authorDesignation}</p>
+            <p className={styles.comment}>{data.allContentfulReview.nodes[commentIndex].comment.comment}</p>
+            <div className={styles.buttons}>
+              <button onClick={() => commentIndexChange(0)}></button>
+              <button onClick={() => commentIndexChange(1)}></button>
+              <button onClick={() => commentIndexChange(2)}></button>
+              <button onClick={() => commentIndexChange(3)}></button>
+            </div>
+          </div>
+        </motion.div>
+      </AnimatePresence>
     </div>
   );
 };

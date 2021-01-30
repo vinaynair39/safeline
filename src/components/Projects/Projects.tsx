@@ -3,8 +3,10 @@ import React, { useState } from "react";
 import ProjectCard from "../ProjectCard/ProjectCard";
 import styles from "./Projects.module.scss";
 
-interface Props {}
-const Projects: React.FC<Props> = ({}) => {
+interface Props {
+  exploreMore: boolean;
+}
+const Projects: React.FC<Props> = ({ exploreMore }) => {
   const [commentIndex, setCommentIndex] = useState(0);
   const data = useStaticQuery(graphql`
     query {
@@ -45,7 +47,7 @@ const Projects: React.FC<Props> = ({}) => {
         isMobile={false}
         title={data.allContentfulFeaturedProject.nodes[commentIndex].title}
         description={data.allContentfulFeaturedProject.nodes[commentIndex].description.description}
-        exploreMore={true}
+        exploreMore={exploreMore}
       />
       <div className={styles.buttons}>
         <button onClick={() => commentIndexChange(0)}></button>

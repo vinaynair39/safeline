@@ -13,7 +13,6 @@ import Layout from "../components/Layout/Layout";
 import styles from "../styles/index.module.scss";
 
 const IndexPage: React.FC<PageProps> = ({ path }) => {
-  const [homeHero, setHomeHero] = useState(true);
   const data = useStaticQuery(graphql`
     query {
       mobileImage: file(relativePath: { eq: "bg-mobile.png" }) {
@@ -64,49 +63,20 @@ const IndexPage: React.FC<PageProps> = ({ path }) => {
     }
   `);
 
-  useEffect(() => {
-    const intervalID = setInterval(() => setHomeHero(!homeHero), 10000);
-    return () => clearInterval(intervalID);
-  }, [homeHero]);
-
-  const source1 = {
-    images: [
-      data.mobileImage.childImageSharp.fluid,
-      {
-        ...data.desktopImage.childImageSharp.fluid,
-        media: `(min-width: 768px)`,
-      },
-    ],
-    pretitle: "Safeline Electricals is",
-    title: "A Grade Government Registered & Licensed Electrical Contractor",
-  };
-
-  const source2 = {
-    images: [
-      data.mobileImage2.childImageSharp.fluid,
-      {
-        ...data.desktopImage2.childImageSharp.fluid,
-        media: `(min-width: 768px)`,
-      },
-    ],
-    pretitle: "Safeline electricals",
-    title: "Provide various services including all types of civil and mechanical works",
-  };
-
-  const source = homeHero ? source1 : source2;
+  // const source = homeHero ? source1 : source2;
 
   return (
     <Layout path={path}>
       <div className={styles.home}>
-        <Hero {...source} />
+        <Hero />
         <WelcomeInfo />
         <Services />
         <Stats clients={83} projects={200} employees={150} />
         <Clients />
-        <Projects />
+        <Projects exploreMore={true} />
         <div className={styles.quote}>
           <div className={styles.image}></div>
-          <div className={styles.form}>
+          <div className={styles.form} id="quoteForm">
             <QuoteForm stretch={false} />
           </div>
         </div>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "gatsby";
+import { graphql, Link, useStaticQuery } from "gatsby";
 import { Twirl as Hamburger } from "hamburger-react";
 import styles from "./MobileNav.module.scss";
 import classnames from "classnames";
@@ -10,10 +10,23 @@ interface Props {
   path: string;
 }
 const MobileNav: React.FC<Props> = ({ isOpen, path, setOpen }) => {
+  const data = useStaticQuery(graphql`
+    query {
+      allContentfulService(sort: { fields: [serialNumber], order: ASC }) {
+        nodes {
+          slug
+          serviceName
+        }
+      }
+    }
+  `);
   return (
     <>
       <nav className={styles.navbar}>
-        <div className={styles.dropdown}>
+        <div className={styles.hamburger}>
+          <Hamburger color={"#35393f"} rounded size={24} toggled={isOpen} toggle={setOpen} />
+        </div>
+        <div className={styles.dropdown} style={isOpen ? { display: "block" } : {}}>
           <div className={styles.menuItem}>
             <Link to="/" className={classnames(styles.button, { [styles.active]: path === "/" })}>
               Home

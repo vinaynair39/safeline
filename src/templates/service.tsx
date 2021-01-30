@@ -33,7 +33,7 @@ const service: React.FC<PageProps> = ({ data, path }: { data: any; path: string 
   console.log(data);
   return (
     <Layout path={path}>
-      <div className={styles.service}>
+      <div id="services" className={styles.service}>
         <SecondaryLayout>
           <div className={styles.content}>
             <h1 className={styles.heading}>
@@ -44,7 +44,7 @@ const service: React.FC<PageProps> = ({ data, path }: { data: any; path: string 
                 <GatsbyImage fluid={data.contentfulService.image.fluid} />
                 <div className={styles.button}>
                   <button>
-                    <a href="">
+                    <a href="#quoteForm">
                       Enquire Us
                       <Arrow />
                     </a>

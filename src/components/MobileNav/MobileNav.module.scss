@@ -4,90 +4,216 @@
   position: relative;
   z-index: 100;
   left: 0.7rem;
+}
+
+.navbar {
   @include media(">tablet") {
     display: none;
   }
-}
 
-.navLinks {
-  display: none;
-  a {
-    position: relative;
-    color: white;
-    font-size: 1.5;
-    font-weight: 500;
-    letter-spacing: 1px;
-    &:after {
-      content: "";
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      right: 0;
-      width: 100%;
-      height: 1px;
-      transform: scaleX(0);
-      background-color: $green;
-      transition: transform 0.3s;
-    }
-    &:hover {
-      &:after {
-        transform: scaleX(1);
+  .dropdown {
+    display: none;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: 10vh;
+    z-index: 100;
+    padding: 0 8vw 8vw 8vw;
+    background-color: white;
+    border: 1px solid $green;
+    animation-name: navdown;
+    animation-duration: 0.5s;
+    transition: all 0.5 ease;
+  }
+
+  .button {
+    font-size: 1.8vh;
+    color: $black;
+    letter-spacing: 2px;
+    cursor: pointer;
+    font-weight: 600;
+    padding-top: 3vh;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .menuItem {
+    display: flex;
+    flex-direction: column;
+    ul {
+      visibility: hidden;
+      opacity: 0;
+      height: 0;
+      transition: all 0.2s ease-in-out;
+      transform: translateY(-40px);
+      pointer-events: none;
+      background: white;
+      padding: 0 4vw 0 5vw;
+      transition: all 0.3s ease-in;
+      white-space: nowrap;
+      border-radius: 8px;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        border-radius: 4px;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 1vw;
+        background-color: $green;
+      }
+      li {
+        margin-bottom: 3vh;
+      }
+      li:last-child {
+        margin-bottom: 0;
+      }
+      a {
+        font-size: 1.6vh;
+        color: $black;
+        letter-spacing: 1px;
+        transition: all 0.2s ease-in-out;
+        font-weight: 600;
+        &:hover {
+          color: $green;
+        }
       }
     }
   }
-  a:hover {
-    transform: scale(1);
+
+  .menuItem:active {
+    cursor: pointer;
+    transform: scale(1, 1);
   }
 
-  & .active {
-    color: $green;
-  }
-}
+  .menuItem:hover a + ul {
+    visibility: visible;
+    height: fit-content;
+    margin: 2vh 0 2vh 0;
 
-.navLinksOpened {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  color: white;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 10;
-  height: 100vh;
-  background-color: #1e2429;
-  animation-name: navdown;
-  animation-duration: 0.5s;
-  transition: all 0.5 ease;
-  a {
-    margin: 4rem;
-    font-size: 3.5vh;
-    color: white;
-  }
-  & .active {
-    color: $green;
-  }
-}
-
-@keyframes navdown {
-  from {
-    opacity: 0;
-    height: 8vh;
-  }
-  to {
+    transform: translateX(0);
     opacity: 1;
-    height: 100vh;
+    pointer-events: all;
+  }
+
+  .active {
+    color: $green;
+    font-weight: 700;
+  }
+
+  @keyframes navdown {
+    from {
+      opacity: 0;
+      height: 10vh;
+    }
+    to {
+      opacity: 1;
+      height: 40vh;
+    }
+  }
+
+  @keyframes submenudown {
+    from {
+      opacity: 0;
+      height: 10vh;
+    }
+    to {
+      opacity: 1;
+      height: 40vh;
+    }
+  }
+  @keyframes navup {
+    from {
+      opacity: 1;
+      height: 100vh;
+    }
+    to {
+      opacity: 0;
+      height: 8vh;
+    }
   }
 }
 
-@keyframes navup {
-  from {
-    opacity: 1;
-    height: 100vh;
-  }
-  to {
-    opacity: 0;
-    height: 8vh;
-  }
-}
+// .navLinks {
+//   display: none;
+//   a {
+//     position: relative;
+//     color: white;
+//     font-size: 1.5;
+//     font-weight: 500;
+//     letter-spacing: 1px;
+//     &:after {
+//       content: "";
+//       position: absolute;
+//       bottom: -2px;
+//       left: 0;
+//       right: 0;
+//       width: 100%;
+//       height: 1px;
+//       transform: scaleX(0);
+//       background-color: $green;
+//       transition: transform 0.3s;
+//     }
+//     &:hover {
+//       &:after {
+//         transform: scaleX(1);
+//       }
+//     }
+//   }
+//   a:hover {
+//     transform: scale(1);
+//   }
+
+//   & .active {
+//     color: $green;
+//   }
+// }
+
+// .navLinksOpened {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   position: absolute;
+//   color: white;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   z-index: 10;
+//   height: 100vh;
+//   background-color: #1e2429;
+//   animation-name: navdown;
+//   animation-duration: 0.5s;
+//   transition: all 0.5 ease;
+//   a {
+//     margin: 4rem;
+//     font-size: 3.5vh;
+//     color: white;
+//   }
+//   & .active {
+//     color: $green;
+//   }
+// }
+
+// @keyframes navdown {
+//   from {
+//     opacity: 0;
+//     height: 8vh;
+//   }
+//   to {
+//     opacity: 1;
+//     height: 100vh;
+//   }
+// }
+
+// @keyframes navup {
+//   from {
+//     opacity: 1;
+//     height: 100vh;
+//   }
+//   to {
+//     opacity: 0;
+//     height: 8vh;
+//   }
+// }

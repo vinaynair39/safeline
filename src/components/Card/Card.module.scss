@@ -6,7 +6,20 @@
   cursor: pointer;
   background-color: $black;
   border-radius: 4px;
-  margin-bottom: 4vh;
+  margin-top: 4vh;
+  &:hover {
+    .imageTag {
+      transform: scale(1.1);
+    }
+    button {
+      background-color: $green;
+    }
+  }
+  @include media("<tablet") {
+    &:first-child {
+      margin-top: 0;
+    }
+  }
   position: relative;
   @include media(">tablet") {
     border-radius: 8px;
@@ -15,15 +28,16 @@
   }
 
   .image {
+    overflow: hidden;
+    box-sizing: border-box;
     @include media(">tablet") {
       width: 42vh;
     }
     .imageTag {
+      transition: all 0.4s ease-in-out;
       height: 36vh;
-      border-radius: 8px;
     }
   }
-
   .content {
     height: 16.5vh;
     text-align: center;

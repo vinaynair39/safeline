@@ -33,7 +33,7 @@ const projects: React.FC<PageProps> = ({ path }) => {
   return (
     <Layout path={path}>
       <div className={styles.projects}>
-        <Projects />
+        <Projects exploreMore={false} />
         <div className={styles.other}>
           <h1 className={styles.heading}>
             <span>Other Projects</span>

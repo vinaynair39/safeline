@@ -5,6 +5,8 @@ import Arrow from "../../assets/arrow.svg";
 
 import { useForm } from "react-hook-form";
 import styles from "./CVForm.module.scss";
+import axios from "axios";
+import Modal from "../Modal/Modal";
 
 type Inputs = {
   name: string;
@@ -12,7 +14,7 @@ type Inputs = {
   phone: number;
   zip: number;
   cv: File;
-  comment: string;
+  message: string;
 };
 function getBase64(file: File) {
   return new Promise((resolve, reject) => {
@@ -26,23 +28,29 @@ function getBase64(file: File) {
 interface Props {}
 const CVForm: React.FC<Props> = ({}) => {
   const { register, handleSubmit, errors } = useForm<Inputs>();
+  const [showModal, setShowModal] = useState(false);
+  const [modalText, setModalText] = useState("");
   const [loading, setLoading] = useState(false);
-  const onSubmit = async (data) => {
+
+  const onSubmit = async (values: any, e: any) => {
     setLoading(true);
-    const resume = await getBase64(data.resume[0]);
-    const extension = data.resume[0].type === "image/jpeg" ? "jpg" : data.resume[0].type.split("/")[1];
-    console.log({
-      ...data,
+    const resume = await getBase64(values.resume[0]);
+    const extension = values.resume[0].type === "image/jpeg" ? "jpg" : values.resume[0].type.split("/")[1];
+    const { data } = await axios.post(process.env.GATSBY_RESUME_API!, {
+      ...values,
       resume: {
         data: resume,
         extension,
       },
     });
+    setShowModal(true);
     setLoading(false);
+    setModalText(data.message);
+    e.target.reset(); // reset after form submit  };
   };
-
   return (
     <div className={classNames(styles.cvForm)}>
+      <Modal showModal={showModal} setShowModal={setShowModal} modalText={modalText} />
       <div className={styles.form}>
         <div className={styles.title}>
           <p>Career with us</p>
@@ -88,7 +96,7 @@ const CVForm: React.FC<Props> = ({}) => {
             </>
           </div>
           <div className={styles.fourth}>
-            <textarea name="comment" placeholder="Tell us something about yourself" ref={register({ required: false })} rows={10} />
+            <textarea name="message" placeholder="Tell us something about yourself" ref={register({ required: false })} rows={10} />
           </div>
           <div className={styles.errors}>
             <ErrorMessage errors={errors} name="name" render={({ message }) => <p className={styles.error}>{message}</p>} />
@@ -96,7 +104,7 @@ const CVForm: React.FC<Props> = ({}) => {
             <ErrorMessage errors={errors} name="email" render={({ message }) => <p className={styles.error}>{message}</p>} />
             <ErrorMessage errors={errors} name="zip" render={({ message }) => <p className={styles.error}>{message}</p>} />
             <ErrorMessage errors={errors} name="resume" render={({ message }) => <p className={styles.error}>{message}</p>} />
-            <ErrorMessage errors={errors} name="comment" render={({ message }) => <p className={styles.error}>{message}</p>} />
+            <ErrorMessage errors={errors} name="message" render={({ message }) => <p className={styles.error}>{message}</p>} />
           </div>
           <button type="submit" disabled={loading}>
             Submit <Arrow />

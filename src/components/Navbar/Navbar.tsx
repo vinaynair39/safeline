@@ -27,7 +27,9 @@ const Navbar: React.FC<Props> = ({ path }) => {
           </Link>
         </div>
         <div className={styles.menuItem}>
-          <a className={classnames(styles.button, { [styles.active]: path === "/about" })}>About Us</a>
+          <a href="#welcomeInfo" className={classnames(styles.button, { [styles.active]: path === "/about" })}>
+            About Us
+          </a>
           <ul>
             <li>
               <Link to="/chart">Organizational Chart</Link>
@@ -47,7 +49,9 @@ const Navbar: React.FC<Props> = ({ path }) => {
           </ul>
         </div>
         <div className={styles.menuItem}>
-          <a className={classnames(styles.button, { [styles.active]: path === "/services" })}>Services</a>
+          <a href="#services" className={classnames(styles.button, { [styles.active]: path === "/services" })}>
+            Services
+          </a>
           <ul>
             {data.allContentfulService.nodes.map(({ slug, serviceName }: { slug: string; serviceName: string }) => {
               return (

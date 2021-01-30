@@ -1,8 +1,7 @@
 import { Link } from "gatsby";
 import GatsbyImage from "gatsby-image";
-import React, { useState } from "react";
+import React from "react";
 import Slider from "infinite-react-carousel";
-
 import styles from "./ProjectCard.module.scss";
 
 interface Props {
@@ -16,7 +15,7 @@ interface Props {
 const ProjectCard: React.FC<Props> = ({ isMobile, image, title, description, exploreMore = true }) => {
   return (
     <div className={styles.projectCard}>
-      <div className={styles.content}>
+      <div className={styles.content} style={!exploreMore ? { justifyContent: "center" } : {}}>
         <h1 className={styles.title}>{title}</h1>
         {isMobile ? (
           <p className={styles.description}>

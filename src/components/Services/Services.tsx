@@ -26,7 +26,7 @@ const Services: React.FC<Props> = ({}) => {
   `);
 
   return (
-    <div className={styles.services}>
+    <div className={styles.services} id="services">
       <h1 className={styles.heading}>
         Our <span>Services</span>
       </h1>

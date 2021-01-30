@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import axios from "axios";
 import { ErrorMessage } from "@hookform/error-message";
 import Arrow from "../../assets/arrow.svg";
 import Telephone from "../../assets/telephone.svg";
 
 import styles from "./QuoteForm.module.scss";
 import classNames from "classnames";
+import Modal from "../Modal/Modal";
 
 type Inputs = {
   name: string;
@@ -13,7 +15,7 @@ type Inputs = {
   phone: number;
   zip: number;
   service: string;
-  comment: string;
+  message: string;
 };
 
 interface Props {
@@ -21,16 +23,22 @@ interface Props {
 }
 const QuoteForm: React.FC<Props> = ({ stretch }) => {
   const { register, handleSubmit, errors } = useForm<Inputs>();
+  const [showModal, setShowModal] = useState(false);
+  const [modalText, setModalText] = useState("");
   const [loading, setLoading] = useState(false);
-  const onSubmit = (data) => {
+
+  const onSubmit = async (values: any, e: any) => {
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 3000);
-    console.log(data);
+    const { data } = await axios.post(process.env.GATSBY_QUOTE_API!, values);
+    setShowModal(true);
+    setLoading(false);
+    setModalText(data.message);
+    e.target.reset(); // reset after form submit
   };
+
   return (
     <div className={classNames(styles.quoteForm, { [styles.quoteFormStretch]: stretch })}>
+      <Modal showModal={showModal} setShowModal={setShowModal} modalText={modalText} />
       <div className={styles.info}>
         <h2 className={styles.heading}>Our Location</h2>
         <p className={styles.content}>
@@ -87,7 +95,7 @@ const QuoteForm: React.FC<Props> = ({ stretch }) => {
             <input name="service" placeholder="Name of the service that you want" ref={register({ required: "Please enter which service you want." })} />
           </div>
           <div className={styles.fourth}>
-            <textarea name="comment" placeholder="Tell us more about your requirements" ref={register({ required: false })} rows={10} />
+            <textarea name="message" placeholder="Tell us more about your requirements" ref={register({ required: false })} rows={10} />
           </div>
           <div className={styles.errors}>
             <ErrorMessage errors={errors} name="name" render={({ message }) => <p className={styles.error}>{message}</p>} />
@@ -95,7 +103,7 @@ const QuoteForm: React.FC<Props> = ({ stretch }) => {
             <ErrorMessage errors={errors} name="email" render={({ message }) => <p className={styles.error}>{message}</p>} />
             <ErrorMessage errors={errors} name="zip" render={({ message }) => <p className={styles.error}>{message}</p>} />
             <ErrorMessage errors={errors} name="service" render={({ message }) => <p className={styles.error}>{message}</p>} />
-            <ErrorMessage errors={errors} name="comment" render={({ message }) => <p className={styles.error}>{message}</p>} />
+            <ErrorMessage errors={errors} name="message" render={({ message }) => <p className={styles.error}>{message}</p>} />
           </div>
           <button type="submit" disabled={loading}>
             Submit <Arrow />

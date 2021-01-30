@@ -1,10 +1,9 @@
 @import "./styles";
 .home {
   .quote {
-    padding-top: 12vh;
-
+    margin-top: 12vh;
     @include media(">tablet") {
-      padding-top: 20vh;
+      margin-top: 16vh;
     }
     .image {
       background-image: url("../images/suit.jpg");
@@ -180,7 +179,6 @@
 
 .projects {
   margin-top: 6vh;
-
   .heading {
     margin-top: 6vh;
     text-align: center;
@@ -198,7 +196,6 @@
 
     @include media(">tablet") {
       margin-top: 10vh;
-
       font-weight: bold;
       font-size: 4.4vh;
       span {
@@ -214,7 +211,7 @@
     margin-top: 4vh;
     @include media(">tablet") {
       margin-top: 6vh;
-      margin-bottom: 6vh;
+      margin-bottom: 12vh;
     }
     display: flex;
     flex-wrap: wrap;
