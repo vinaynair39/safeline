@@ -1,0 +1,179 @@
+@import "../../styles/styles";
+
+$animationSpeed: 40s;
+
+// Animation
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-350px * 7));
+  }
+}
+
+.clients {
+  margin-top: 7vh;
+  padding: 0 6vw;
+  @include media(">tablet") {
+    margin-top: 16vh;
+  }
+  .heading {
+    text-align: center;
+    font-size: 4.8vw;
+    line-height: 144%;
+    text-transform: uppercase;
+    position: relative;
+    letter-spacing: 2px;
+    span {
+      border-bottom: 0.3vh solid $green;
+      display: inline-block;
+      height: 6vw;
+      border-radius: 1px;
+    }
+
+    @include media(">tablet") {
+      font-weight: bold;
+      font-size: 4.4vh;
+      span {
+        border-bottom: 4px solid $green;
+        display: inline-block;
+        height: 6vh;
+        border-radius: 2px;
+      }
+    }
+  }
+
+  .slider {
+    background: white;
+    height: fit-content;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    &::before,
+    &::after {
+      content: "";
+      height: 100px;
+      position: absolute;
+      width: 200px;
+      z-index: 2;
+    }
+
+    &::after {
+      right: 0;
+      top: 0;
+      transform: rotateZ(180deg);
+    }
+
+    &::before {
+      left: 0;
+      top: 0;
+    }
+
+    .slideTrack {
+      animation: scroll $animationSpeed linear infinite;
+      display: flex;
+      width: calc(350px * 14);
+      padding-top: 4vh;
+      padding-bottom: 4vh;
+      @include media(">tablet") {
+        padding-top: 12vh;
+        padding-bottom: 12vh;
+      }
+      .slide {
+        margin: auto 2vw;
+        width: 30vw;
+        @include media(">tablet") {
+          width: 20vw;
+        }
+      }
+    }
+  }
+
+  .reviews {
+    text-align: center;
+    .title {
+      font-size: 2vh;
+      font-weight: 600;
+      color: $green;
+      letter-spacing: 2px;
+
+      @include media(">tablet") {
+        font-size: 3vh;
+      }
+    }
+    .content {
+      letter-spacing: 1px;
+      .profileImage {
+        width: 20vw;
+        height: 20vw;
+        border-radius: 100%;
+        object-fit: cover;
+        @include media(">tablet") {
+          width: 12vh;
+          height: 12vh;
+          object-fit: cover;
+        }
+      }
+      .name {
+        margin-top: 1vh;
+        font-weight: 600;
+        @include media(">tablet") {
+          margin-top: 2vh;
+          font-size: 3vh;
+        }
+      }
+      .designation {
+        margin-top: 0.2vh;
+        color: #565c66;
+        font-size: 1.6vh;
+        @include media(">tablet") {
+          margin-top: 0;
+          font-size: 2.2vh;
+        }
+      }
+      .comment {
+        padding-top: 2vh;
+        font-weight: 500;
+        letter-spacing: 0;
+        @include media(">tablet") {
+          font-size: 2.8vh;
+          font-weight: 600;
+          padding: 2vh 20vw;
+          letter-spacing: 1px;
+        }
+      }
+      .buttons {
+        display: flex;
+        justify-content: center;
+        margin-top: 2vh;
+        margin-bottom: 12vh;
+        @include media(">tablet") {
+          margin-bottom: 16vh;
+        }
+        button {
+          background-color: $green;
+          padding: 0.2vh;
+          width: 6vw;
+          border-radius: 4px;
+          margin-right: 4vw;
+          cursor: pointer;
+          transition: all 0.2s ease;
+          @include media(">tablet") {
+            width: 2vw;
+            padding: 0.3vh;
+            margin-right: 1vw;
+          }
+          &:last-child {
+            margin-right: 0;
+          }
+
+          &:active {
+            transform: scale(0.9);
+          }
+        }
+      }
+    }
+  }
+}

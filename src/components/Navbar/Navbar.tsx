@@ -1,51 +1,89 @@
-import { motion } from "framer-motion";
-import { Link } from "gatsby";
-import React, { useState } from "react";
-import "./Navbar.scss";
+import { graphql, Link, useStaticQuery } from "gatsby";
+import classnames from "classnames";
+import React from "react";
+import styles from "./Navbar.module.scss";
 
 interface Props {
   path: string;
 }
 const Navbar: React.FC<Props> = ({ path }) => {
-  return (
-    <ul className="navbar">
-      <li>
-        <Link to="/" className={path === "/" ? "active" : ""}>
-          Home
-        </Link>
-      </li>
+  const data = useStaticQuery(graphql`
+    query {
+      allContentfulService(sort: { fields: [serialNumber], order: ASC }) {
+        nodes {
+          slug
+          serviceName
+        }
+      }
+    }
+  `);
 
-      <li>
-        <Link to="/about" className={path === "/about" ? "active" : ""}>
-          About Us
-        </Link>
-      </li>
-      <li>
-        <Link to="/services" className={path === "/services" ? "active" : ""}>
-          Services
-        </Link>
-      </li>
-      <li>
-        <Link to="/projects" className={path === "/projects" ? "active" : ""}>
-          Projects
-        </Link>
-      </li>
-      <li>
-        <Link to="/clients" className={path === "/clients" ? "active" : ""}>
-          Our clients
-        </Link>
-      </li>
-      <li>
-        <Link to="/careers" className={path === "/careers" ? "active" : ""}>
-          Careers
-        </Link>
-      </li>
-      <li>
-        <Link to="/contacts" className={path === "/contacts" ? "active" : ""}>
-          Contact Us
-        </Link>
-      </li>
-    </ul>
+  return (
+    <nav className={styles.navbar}>
+      <div className={styles.dropdown}>
+        <div className={styles.menuItem}>
+          <Link to="/" className={classnames(styles.button, { [styles.active]: path === "/" })}>
+            Home
+          </Link>
+        </div>
+        <div className={styles.menuItem}>
+          <a href="#welcomeInfo" className={classnames(styles.button, { [styles.active]: path === "/about" })}>
+            About Us
+          </a>
+          <ul>
+            <li>
+              <Link to="/chart">Organizational Chart</Link>
+            </li>
+            <li>
+              <Link to="/tools">List of tools & Plants</Link>
+            </li>
+            <li>
+              <Link to="/statuary">Statuary Details</Link>
+            </li>
+            <li>
+              <Link to="/certificates">Certificates</Link>
+            </li>
+            <li>
+              <Link to="/awards">Awards & Recognition</Link>
+            </li>
+          </ul>
+        </div>
+        <div className={styles.menuItem}>
+          <a href="#services" className={classnames(styles.button, { [styles.active]: path === "/services" })}>
+            Services
+          </a>
+          <ul>
+            {data.allContentfulService.nodes.map(({ slug, serviceName }: { slug: string; serviceName: string }) => {
+              return (
+                <li>
+                  <Link to={`/${slug}`}>{serviceName}</Link>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+        <div className={styles.menuItem}>
+          <Link to="/projects" className={classnames(styles.button, { [styles.active]: path === "/projects" })}>
+            Projects
+          </Link>
+        </div>
+        <div className={styles.menuItem}>
+          <Link to="/clients" className={classnames(styles.button, { [styles.active]: path === "/clients" })}>
+            Our clients
+          </Link>
+        </div>
+        <div className={styles.menuItem}>
+          <Link to="/careers" className={classnames(styles.button, { [styles.active]: path === "/careers" })}>
+            Careers
+          </Link>
+        </div>
+        <div className={styles.menuItem}>
+          <Link to="/contacts" className={classnames(styles.button, { [styles.active]: path === "/contacts" })}>
+            Contact Us
+          </Link>
+        </div>
+      </div>
+    </nav>
   );
 };
 export default Navbar;

@@ -1,0 +1,63 @@
+@import "../../styles/styles";
+
+.services {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 6vh 6vw;
+  @include media(">tablet") {
+    margin: 20vh 6vw 0 6vw;
+  }
+  .cards {
+    margin-top: 4vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    @include media(">tablet") {
+      margin-top: 8vh;
+    }
+  }
+
+  .description {
+    text-align: center;
+    font-weight: 600;
+    padding-top: 1vh;
+    font-size: 2vh;
+    line-height: 33px;
+    // letter-spacing: 1px;
+    @include media(">tablet") {
+      font-size: 3vh;
+      width: 60%;
+      letter-spacing: 2px;
+      padding-top: 2vh;
+    }
+  }
+  .heading {
+    text-align: center;
+    font-size: 4.8vw;
+    line-height: 144%;
+    text-transform: uppercase;
+    position: relative;
+    letter-spacing: 2px;
+    margin-top: 4vh;
+    span {
+      border-bottom: 0.3vh solid $green;
+      display: inline-block;
+      height: 6vw;
+      border-radius: 1px;
+    }
+
+    @include media(">tablet") {
+      margin-top: 6vh;
+      font-weight: bold;
+      font-size: 4.4vh;
+      span {
+        border-bottom: 4px solid $green;
+        display: inline-block;
+        height: 6vh;
+        border-radius: 2px;
+      }
+    }
+  }
+}

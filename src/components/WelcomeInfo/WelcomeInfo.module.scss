@@ -1,0 +1,174 @@
+@import "../../styles/styles";
+
+.welcomeInfo {
+  margin: 4vh 6vw;
+  @include media(">tablet") {
+    margin-top: 6vh;
+    margin-bottom: 4.5vh;
+  }
+  .data {
+    @include flexbox(row, flex-start, space-between);
+  }
+
+  .images {
+    display: none;
+    @include media(">tablet") {
+      display: flex;
+      margin-top: 12vh;
+
+      position: relative;
+      .electric {
+        width: 34vw;
+        height: 45vh;
+      }
+
+      .tower {
+        width: 18vw;
+        height: 53vh;
+        position: absolute;
+        top: 31vh;
+        left: 19vw;
+        border: 2.4vh solid white;
+        border-radius: 12px;
+        box-sizing: border-box;
+      }
+    }
+  }
+
+  .heading {
+    text-align: center;
+    font-size: 4.8vw;
+    line-height: 144%;
+    text-transform: uppercase;
+    position: relative;
+    letter-spacing: 2px;
+    span {
+      border-bottom: 0.3vh solid $green;
+      display: inline-block;
+      height: 5.8vw;
+      border-radius: 1px;
+    }
+
+    @include media(">tablet") {
+      font-weight: bold;
+      font-size: 4.4vh;
+      span {
+        border-bottom: 4px solid $green;
+        display: inline-block;
+        height: 6vh;
+        border-radius: 2px;
+      }
+    }
+  }
+
+  .content {
+    margin-top: 4vh;
+    @include media(">tablet") {
+      margin-top: 12vh;
+      width: 48%;
+    }
+
+    .pretitle {
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 1.6vh;
+      font-weight: bold;
+      color: #565c66;
+      @include media(">tablet") {
+        font-size: 2vh;
+        letter-spacing: 3px;
+      }
+    }
+
+    .title {
+      padding-top: 0.4vh;
+      font-weight: bold;
+      font-size: 2.2vh;
+      text-transform: uppercase;
+      position: relative;
+      letter-spacing: 0.5px;
+      @include media(">tablet") {
+        font-size: 3.5vh;
+        letter-spacing: 1px;
+        &::before {
+          content: "";
+          position: absolute;
+          border-radius: 4px;
+          left: -1.4vw;
+          top: -2.8vh;
+          height: 18vh;
+          width: 0.4vw;
+          background-color: $green;
+          transition: transform 0.25s cubic-bezier(0.37, 0.31, 0.2, 0.85);
+        }
+      }
+    }
+    .description {
+      padding-top: 2vh;
+      font-size: 2.1vh;
+
+      @include media(">tablet") {
+        font-weight: 600;
+        font-size: 2.8vh;
+      }
+    }
+  }
+
+  .usp {
+    margin-top: 4vh;
+    @include media(">tablet") {
+      @include flexbox(row, center, flex-start);
+      margin-top: 6vh;
+      flex-direction: row-reverse;
+    }
+
+    svg {
+      width: 16vw;
+      margin-right: 6vw;
+      @include media(">tablet") {
+        margin-right: 1vw;
+        width: 5vw;
+        height: 100%;
+      }
+    }
+
+    .satisfaction {
+      @include flexbox(row, center, flex-start);
+      svg {
+        @include media(">tablet") {
+          width: 6vw;
+        }
+      }
+      p {
+        font-size: 2.5vh;
+        font-weight: 600;
+        line-height: 135%;
+        width: 60%;
+        position: relative;
+        left: 3vw;
+        @include media(">tablet") {
+          position: static;
+          font-weight: 700;
+          font-size: 3vh;
+        }
+      }
+    }
+    .badge {
+      @include flexbox(row, center, flex-start);
+
+      p {
+        font-size: 2.5vh;
+        font-weight: 600;
+        line-height: 135%;
+        width: 60%;
+        position: relative;
+        left: 3vw;
+        @include media(">tablet") {
+          position: static;
+          font-weight: 700;
+          font-size: 3vh;
+        }
+      }
+    }
+  }
+}

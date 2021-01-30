@@ -1,0 +1,106 @@
+@import "../../styles/styles";
+
+.navbar {
+  @include media("<tablet") {
+    display: none;
+  }
+  background-color: $black;
+  padding: 0 6vw;
+  .dropdown {
+    height: 8.7vh;
+    display: flex;
+    align-items: center;
+
+    .button {
+      font-size: 2.2vh;
+      color: white;
+      letter-spacing: 2px;
+      cursor: pointer;
+      font-weight: 600;
+      margin: auto 0;
+      position: relative;
+    }
+
+    .menuItem {
+      position: relative;
+      z-index: 10;
+      height: 8.7vh;
+      display: flex;
+      margin-right: 3.4vw;
+      ul {
+        @include flexbox(column, flex-start, space-evenly);
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(40px);
+        pointer-events: none;
+        position: absolute;
+        background: white;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        margin-top: 8.8vh;
+        padding: 2vw;
+        transition: all 0.3s ease-in;
+        white-space: nowrap;
+        border-radius: 8px;
+        li {
+          margin-bottom: 2.5vh;
+        }
+        li::before {
+          content: "";
+          height: 0.4vh;
+          border-radius: 4px;
+          left: 0;
+          height: 2vh;
+          width: 100%;
+          background-color: $green;
+          transition: transform 0.25s cubic-bezier(0.37, 0.31, 0.2, 0.85);
+        }
+        li:last-child {
+          margin-bottom: 0;
+        }
+        a {
+          font-size: 2vh;
+          color: $black;
+          letter-spacing: 1px;
+          transition: all 0.2s ease-in-out;
+          font-weight: 600;
+          &:hover {
+            color: $green;
+          }
+        }
+      }
+    }
+
+    .menuItem::before {
+      content: "";
+      position: absolute;
+      height: 0.4vh;
+      border-radius: 4px;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: $green;
+      transform: scale(0, 1);
+      transition: transform 0.25s cubic-bezier(0.37, 0.31, 0.2, 0.85);
+    }
+
+    .menuItem:hover {
+      cursor: pointer;
+      transform: scale(1, 1);
+    }
+    .menuItem:hover::before {
+      transform: scale(1, 1);
+    }
+
+    .menuItem:hover a + ul {
+      visibility: visible;
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .active {
+      color: $green;
+      font-weight: 700;
+    }
+  }
+}

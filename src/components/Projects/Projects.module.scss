@@ -1,0 +1,75 @@
+@import "../../styles/styles";
+
+.projects {
+  padding: 0 6vw 0 6vw;
+  @include media(">tablet") {
+    padding: 0 0 0 0;
+  }
+  .title {
+    text-align: center;
+    font-size: 1.8vh;
+    font-weight: 600;
+    color: $green;
+    letter-spacing: 2px;
+    @include media(">tablet") {
+      font-size: 2.4vh;
+      padding-bottom: 1vh;
+    }
+  }
+
+  .heading {
+    text-align: center;
+    font-size: 4.8vw;
+    line-height: 144%;
+    text-transform: uppercase;
+    position: relative;
+    letter-spacing: 2px;
+    margin-bottom: 6vh;
+    span {
+      border-bottom: 0.3vh solid $green;
+      display: inline-block;
+      height: 6vw;
+      border-radius: 1px;
+    }
+
+    @include media(">tablet") {
+      font-weight: bold;
+      font-size: 4.4vh;
+      margin-bottom: 16vh;
+
+      span {
+        border-bottom: 4px solid $green;
+        display: inline-block;
+        height: 6vh;
+        border-radius: 2px;
+      }
+    }
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 3vh;
+    button {
+      background-color: $green;
+      padding: 0.2vh;
+      width: 6vw;
+      border-radius: 4px;
+      margin-right: 4vw;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      @include media(">tablet") {
+        width: 2vw;
+        padding: 0.3vh;
+        margin-right: 1vw;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &:active {
+        transform: scale(0.9);
+      }
+    }
+  }
+}

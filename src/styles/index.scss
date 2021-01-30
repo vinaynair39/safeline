@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Nunito:wght@400;700;800;900&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -7,13 +6,31 @@
   outline: none;
   border: none;
   color: #35393f;
+  list-style: none;
+  background: none;
+  border: none;
+  box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
 body {
   font-family: "Nunito", sans-serif;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 .home {
   position: relative;
+}
+
+.alice-carousel__stage {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.alice-carousel__dots {
+  display: none;
 }

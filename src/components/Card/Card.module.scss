@@ -1,0 +1,78 @@
+@import "../../styles/styles";
+
+.card {
+  width: 100%;
+  height: fit-content;
+  cursor: pointer;
+  background-color: $black;
+  border-radius: 4px;
+  margin-top: 4vh;
+  &:hover {
+    .imageTag {
+      transform: scale(1.1);
+    }
+    button {
+      background-color: $green;
+    }
+  }
+  @include media("<tablet") {
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+  position: relative;
+  @include media(">tablet") {
+    border-radius: 8px;
+    width: 42vh;
+    height: 52vh;
+  }
+
+  .image {
+    overflow: hidden;
+    box-sizing: border-box;
+    @include media(">tablet") {
+      width: 42vh;
+    }
+    .imageTag {
+      transition: all 0.4s ease-in-out;
+      height: 36vh;
+    }
+  }
+  .content {
+    height: 16.5vh;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 1vh;
+    @include flexbox(column, center, space-around);
+    @include media(">tablet") {
+      padding: 2vh 0.8vh 0.4vh 0.8vh;
+      height: 14vh;
+      justify-content: space-between;
+    }
+    .title {
+      color: white;
+      font-size: 2.8vh;
+      font-weight: 600;
+      @include media(">tablet") {
+        font-size: 2.4vh;
+      }
+    }
+    button {
+      border: 2px solid $green;
+      padding: 1vh;
+      border-radius: 4px;
+      cursor: pointer;
+      width: fit-content;
+      transition: all 0.2s ease-in;
+      a {
+        color: white;
+        font-size: 2vh;
+        font-weight: lighter;
+      }
+
+      &:hover {
+        background-color: $green;
+      }
+    }
+  }
+}

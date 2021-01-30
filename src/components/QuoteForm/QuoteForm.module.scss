@@ -1,0 +1,253 @@
+@import "../../styles/styles";
+
+.quoteForm,
+.quoteFormStretch {
+  .info {
+    display: none;
+  }
+  @include media(">tablet") {
+    @include flexbox(row, flex-start, space-between);
+    background-color: $black;
+    border-radius: 8px;
+    box-sizing: border-box;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    .info {
+      display: block;
+      height: 73vh;
+      width: 22vw;
+      background-color: $green;
+      border-radius: 8px;
+      margin: 4vw;
+      padding: 2vw;
+      margin-right: 0;
+      .heading,
+      .heading2 {
+        color: white;
+        font-weight: bold;
+        font-size: 3.2vh;
+      }
+      .heading2 {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        font-size: 3vh;
+        svg {
+          path {
+            fill: white;
+          }
+        }
+        margin-top: 5vh;
+      }
+      .content {
+        color: white;
+        margin-top: 1vh;
+        margin-bottom: 4vh;
+        font-size: 2.6vh;
+      }
+      .call {
+        font-weight: 500;
+        color: white;
+        font-size: 2.8vh;
+      }
+    }
+  }
+
+  .form {
+    background-color: $black;
+    width: fit-content;
+    padding: 4vw;
+    border-radius: 8px;
+    position: relative;
+    @include flexbox(column, flex-start, center);
+    @include media("<tablet") {
+      @include flexbox(column, center, center);
+      padding: 6vh 0;
+      width: 100%;
+    }
+    .title {
+      margin-bottom: 4vh;
+      @include media("<tablet") {
+        text-align: center;
+      }
+      p {
+        font-weight: 600;
+        font-size: 2.4vh;
+        line-height: 25px;
+        color: $green;
+        letter-spacing: 0.08em;
+        @include media("<tablet") {
+          font-size: 2vh;
+        }
+      }
+      h1 {
+        color: white;
+        font-weight: bold;
+        font-size: 5vh;
+        text-transform: uppercase;
+        padding-top: 1vh;
+        @include media("<tablet") {
+          font-size: 4vh;
+        }
+      }
+      @include media(">tablet") {
+        &::before {
+          content: "";
+          position: absolute;
+          border-radius: 4px;
+          left: 2.6vw;
+          top: 8.5vh;
+          height: 12vh;
+          width: 0.4vw;
+          background-color: $green;
+          transition: transform 0.25s cubic-bezier(0.37, 0.31, 0.2, 0.85);
+        }
+      }
+    }
+    input {
+      background-color: white;
+      width: 16vw;
+      height: 6vh;
+      border-radius: 4px;
+      margin-right: 2vw;
+      margin-bottom: 3vh;
+      padding: 1vw;
+      font-size: 2vh;
+      &:focus {
+        &::placeholder {
+          color: white;
+        }
+      }
+      @include media("<tablet") {
+        width: 80vw;
+        padding: 4vw;
+        height: 5vh;
+      }
+    }
+
+    .first,
+    .second {
+      input {
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+      @include media("<tablet") {
+        @include flexbox(column, flex-start, center);
+        width: 100%;
+      }
+    }
+
+    .third {
+      width: 100%;
+      & input {
+        width: 100%;
+      }
+      @include media("<tablet") {
+        width: 80vw;
+      }
+    }
+
+    .fourth {
+      width: 100%;
+
+      @include media("<tablet") {
+        width: 80vw;
+      }
+    }
+    textarea {
+      background-color: white;
+      border-radius: 4px;
+      margin-right: 2vw;
+      width: 100%;
+      padding: 1vw;
+      font-size: 2vh;
+      height: 20vh;
+
+      &:focus {
+        &::placeholder {
+          color: white;
+        }
+      }
+      @include media("<tablet") {
+        padding: 4vw;
+      }
+    }
+
+    button {
+      margin-top: 3vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 3vh;
+      padding: 1.5vh 2vh;
+      border-radius: 4px;
+      width: fit-content;
+      cursor: pointer;
+      color: white;
+      background-color: $green;
+      svg {
+        margin-left: 1vh;
+      }
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+      &:active {
+        transform: scale(0.9);
+      }
+
+      &:disabled {
+        background: darken($grey, 20%);
+        cursor: not-allowed;
+      }
+    }
+
+    .errors {
+      padding-top: 1vh;
+    }
+    .error {
+      color: #f2c94c;
+      font-weight: 600;
+    }
+  }
+}
+
+.quoteFormStretch {
+  border-radius: 0;
+  .form {
+    @include media(">tablet") {
+      width: 100%;
+      border-radius: 0;
+      input {
+        height: 7vh;
+        font-size: 2.4vh;
+        padding: 1.5rem;
+      }
+      .first,
+      .second {
+        width: 60vw;
+        & input {
+          width: 40%;
+        }
+      }
+
+      .third {
+        width: 60vw;
+        & input {
+          width: 83.5%;
+        }
+        @include media("<tablet") {
+          width: 80vw;
+        }
+      }
+
+      .fourth {
+        width: 60vw;
+        textarea {
+          width: 83.5%;
+        }
+      }
+    }
+  }
+}

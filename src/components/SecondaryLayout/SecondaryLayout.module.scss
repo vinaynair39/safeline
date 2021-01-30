@@ -1,0 +1,23 @@
+@import "../../styles/styles";
+.secondaryLayout {
+  .main {
+    @include media(">tablet") {
+      padding: 3vh 6vw;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  .servicebar {
+    @include media(">tablet") {
+      justify-self: end;
+      margin-top: 5vh;
+    }
+  }
+
+  .form {
+    margin-bottom: 12vh;
+    @include media("<tablet") {
+      margin: 6vh 0 6vh 0;
+    }
+  }
+}
