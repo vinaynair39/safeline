@@ -3,11 +3,12 @@
 .hero {
   position: relative;
   text-align: center;
+
   transition: all 0.2s ease-in;
   @include media(">tablet") {
     text-align: start;
   }
-  color: white;
+
   .content {
     position: absolute;
     top: 6vh;

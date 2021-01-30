@@ -70,12 +70,9 @@ const Hero: React.FC<Props> = ({}) => {
   return (
     <Slider autoplay arrows={false} autoplaySpeed={8000} duration={350} pauseOnHover={false}>
       <div className={styles.hero}>
-        <AnimatePresence>
-          <motion.div animate={{ scale: 1 }} exit={{ opacity: 0 }}>
-            <Img fluid={source1.images} />
-          </motion.div>
-        </AnimatePresence>
-
+        <div>
+          <Img className={styles.image} fluid={source1.images} />
+        </div>
         <div className={styles.content}>
           <p className={styles.pretitle}>{source1.pretitle}</p>
           <motion.p transition={transition} exit={{ opacity: 0 }} className={styles.title}>
@@ -93,7 +90,7 @@ const Hero: React.FC<Props> = ({}) => {
         </div>
       </div>
       <div className={styles.hero}>
-        <Img fluid={source2.images} />
+        <Img className={styles.image} fluid={source2.images} />
         <div className={styles.content}>
           <p className={styles.pretitle}>{source2.pretitle}</p>
           <p className={styles.title}>{source2.title}</p>
