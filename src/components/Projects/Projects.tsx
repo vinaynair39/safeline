@@ -62,3 +62,11 @@ const Projects: React.FC<Props> = ({ exploreMore }) => {
   );
 };
 export default Projects;
+
+{
+  /* <Slider autoplay arrows={false} autoplaySpeed={4000}>
+{data.allContentfulFeaturedProject.nodes.map((node: any) => {
+  return <ProjectCard image={node.images} isMobile={false} title={node.title} description={node.description.description} exploreMore={exploreMore} />;
+})}
+</Slider> */
+}
