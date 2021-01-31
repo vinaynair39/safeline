@@ -1,7 +1,6 @@
 import { useStaticQuery, graphql } from "gatsby";
-import React, { useState } from "react";
+import React from "react";
 import Card from "../Card/Card";
-import FadeInWhenVisible from "../FadeInWhenVisible/FadeInWhenVisible";
 import SlipInWhenVisible from "../SlipInWhenVisible/SlipInWhenVisible";
 import styles from "./Services.module.scss";
 

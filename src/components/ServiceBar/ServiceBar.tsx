@@ -1,5 +1,5 @@
 import { graphql, Link, useStaticQuery } from "gatsby";
-import React, { useState } from "react";
+import React from "react";
 import styles from "./ServiceBar.module.scss";
 
 interface Props {}

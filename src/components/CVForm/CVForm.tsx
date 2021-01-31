@@ -2,7 +2,6 @@ import { ErrorMessage } from "@hookform/error-message";
 import classNames from "classnames";
 import React, { useState } from "react";
 import Arrow from "../../assets/arrow.svg";
-
 import { useForm } from "react-hook-form";
 import styles from "./CVForm.module.scss";
 import axios from "axios";

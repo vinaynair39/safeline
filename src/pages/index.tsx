@@ -13,6 +13,7 @@ import styles from "../styles/index.module.scss";
 import { motion } from "framer-motion";
 import FadeInWhenVisible from "../components/FadeInWhenVisible/FadeInWhenVisible";
 import SlipInWhenVisible from "../components/SlipInWhenVisible/SlipInWhenVisible";
+import SEO from "../components/SEO/SEO";
 
 const IndexPage: React.FC<PageProps> = ({ path }) => {
   const data = useStaticQuery(graphql`
@@ -80,6 +81,7 @@ const IndexPage: React.FC<PageProps> = ({ path }) => {
 
   return (
     <motion.div className={styles.home} variants={animation} animate="to" initial="from">
+      <SEO title={null} description={null} />
       <Layout path={path}>
         <Hero />
         <WelcomeInfo />

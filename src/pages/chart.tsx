@@ -4,6 +4,7 @@ import React from "react";
 import Layout from "../components/Layout/Layout";
 import QuoteForm from "../components/QuoteForm/QuoteForm";
 import SecondaryLayout from "../components/SecondaryLayout/SecondaryLayout";
+import SEO from "../components/SEO/SEO";
 import ServiceBar from "../components/ServiceBar/ServiceBar";
 import SlipInWhenVisible from "../components/SlipInWhenVisible/SlipInWhenVisible";
 import styles from "../styles/index.module.scss";
@@ -23,6 +24,8 @@ const chart: React.FC<PageProps> = ({ path }) => {
   return (
     <Layout path={path}>
       <div className={styles.chart}>
+        <SEO title={"Organizational Chart"} description={null} />
+
         <SecondaryLayout>
           <SlipInWhenVisible>
             <div className={styles.content}>

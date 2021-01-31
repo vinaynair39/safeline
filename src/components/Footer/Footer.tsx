@@ -13,15 +13,17 @@ const Footer: React.FC<Props> = ({}) => {
           <img src={logo} alt="logo" />
           <p>Safeline Electricals</p>
         </Link>
-        <div className={styles.title}>A Grade Government Registered & Licensed Electrical Contractor</div>
+        <div className={styles.title}>
+          A Grade Government Registered & Licensed Electrical Contractor. Safeline Also Undertakes all types of civil and mechanical works.
+        </div>
         <div className={styles.copyright}>Copyright © 2021 by Safeline Electricals</div>
       </div>
       <div className={styles.right}>
         <div className={styles.main}>
           <div className={styles.navlinks}>
             <Link to="/">Home</Link>
-            <Link to="/about">About Us</Link>
-            <Link to="/services">Services</Link>
+            <Link to="#welcomeInfo">About Us</Link>
+            <Link to="#services">Services</Link>
             <Link to="/projects">Projects</Link>
             <Link to="/clients">Our clients</Link>
             <Link to="/careers">Careers</Link>
@@ -35,6 +37,10 @@ const Footer: React.FC<Props> = ({}) => {
             </div>
             <div className={styles.phone}>Phone : (022) 27401956 / 8425846364 </div>
             <div className={styles.email}> Email: safelineelectricals@gmail.com</div>
+            <div className={styles.places}>
+              Mumbai, Navi Mumbai, industrial, industries, thane, pune, nashik, aurangabad, ratnagiri, nagpur, ahmednagar, akola, amravati, chandrapur, dhule,
+              jalgaon, raigad, sangli, satara, belgaum, kolhapur, belgaon, Taloja, panvel, kamothe, maharashtra.
+            </div>
           </div>
         </div>
       </div>

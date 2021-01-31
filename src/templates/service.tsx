@@ -6,6 +6,7 @@ import Arrow from "../assets/arrow.svg";
 import SecondaryLayout from "../components/SecondaryLayout/SecondaryLayout";
 import styles from "./service.module.scss";
 import SlipInWhenVisible from "../components/SlipInWhenVisible/SlipInWhenVisible";
+import SEO from "../components/SEO/SEO";
 
 export const query = graphql`
   query($slug: String!) {
@@ -34,6 +35,7 @@ const service: React.FC<PageProps> = ({ data, path }: { data: any; path: string 
   console.log(data);
   return (
     <Layout path={path}>
+      <SEO title={data.contentfulService.serviceName} description={data.contentfulService.primaryDescription.primaryDescription} />
       <div id="services" className={styles.service}>
         <SecondaryLayout>
           <SlipInWhenVisible>

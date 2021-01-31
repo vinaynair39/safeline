@@ -3,9 +3,7 @@ import Satisfaction from "../../assets/Satisfaction.svg";
 import Badge from "../../assets/badge.svg";
 import electric from "../../images/electric.png";
 import tower from "../../images/tower.png";
-
 import styles from "./WelcomeInfo.module.scss";
-
 import { motion } from "framer-motion";
 import SlipInWhenVisible from "../SlipInWhenVisible/SlipInWhenVisible";
 
@@ -33,8 +31,8 @@ const WelcomeInfo: React.FC<Props> = ({}) => {
             determination of its tag line – "To go an extra mile" after completion of every project.
           </p>
           <p className={styles.description}>
-            Today Safeline is synonymous with Technical & Managerial expertise and has financial fortitude for the victorious accomplishment of various
-            Projects.
+            Today Safeline is synonymous with Technical & Managerial expertise and is on of the most trusted contractors from Mumbai, Maharashtra. Safeline has
+            financial fortitude for the victorious accomplishment of various Projects.
           </p>
 
           <motion.div className={styles.usp}>

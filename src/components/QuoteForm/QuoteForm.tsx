@@ -4,11 +4,11 @@ import axios from "axios";
 import { ErrorMessage } from "@hookform/error-message";
 import Arrow from "../../assets/arrow.svg";
 import Telephone from "../../assets/telephone.svg";
-
-import styles from "./QuoteForm.module.scss";
 import classNames from "classnames";
 import Modal from "../Modal/Modal";
 import SlipInWhenVisible from "../SlipInWhenVisible/SlipInWhenVisible";
+
+import styles from "./QuoteForm.module.scss";
 
 type Inputs = {
   name: string;
@@ -40,7 +40,6 @@ const QuoteForm: React.FC<Props> = ({ stretch }) => {
   return (
     <SlipInWhenVisible>
       <div className={classNames(styles.quoteForm, { [styles.quoteFormStretch]: stretch })}>
-        {" "}
         <Modal showModal={showModal} setShowModal={setShowModal} modalText={modalText} />
         <div className={styles.info}>
           <h2 className={styles.heading}>Our Location</h2>

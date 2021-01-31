@@ -3,6 +3,7 @@ import GatsbyImage from "gatsby-image";
 import React from "react";
 import Layout from "../components/Layout/Layout";
 import SecondaryLayout from "../components/SecondaryLayout/SecondaryLayout";
+import SEO from "../components/SEO/SEO";
 import Table from "../components/Table/Table";
 import styles from "../styles/index.module.scss";
 
@@ -49,6 +50,8 @@ const tools: React.FC<PageProps> = ({ path }) => {
   return (
     <Layout path={path}>
       <div className={styles.clients}>
+        <SEO title={"Our Clients"} description={null} />
+
         <div className={styles.logos}>
           {logos.allFile.edges.map(({ node }: any, index: number) => {
             const image = node.childImageSharp.fluid;
