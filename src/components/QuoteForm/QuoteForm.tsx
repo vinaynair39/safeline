@@ -7,7 +7,6 @@ import Telephone from "../../assets/telephone.svg";
 import classNames from "classnames";
 import Modal from "../Modal/Modal";
 import SlipInWhenVisible from "../SlipInWhenVisible/SlipInWhenVisible";
-
 import styles from "./QuoteForm.module.scss";
 
 type Inputs = {
@@ -31,8 +30,8 @@ const QuoteForm: React.FC<Props> = ({ stretch }) => {
   const onSubmit = async (values: any, e: any) => {
     setLoading(true);
     const { data } = await axios.post(process.env.GATSBY_QUOTE_API!, values);
-    setShowModal(true);
     setLoading(false);
+    setShowModal(true);
     setModalText(data.message);
     e.target.reset(); // reset after form submit
   };
