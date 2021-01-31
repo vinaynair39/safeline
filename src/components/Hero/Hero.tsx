@@ -25,28 +25,28 @@ interface Props {}
 const Hero: React.FC<Props> = ({}) => {
   const data = useStaticQuery(graphql`
     query {
-      mobileImage: file(relativePath: { eq: "bg-mobile.png" }) {
+      mobileImage: file(relativePath: { eq: "bg-mobile.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 2048, quality: 100) {
             ...GatsbyImageSharpFluid
           }
         }
       }
-      desktopImage: file(relativePath: { eq: "bg.png" }) {
+      desktopImage: file(relativePath: { eq: "bg.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 2048, quality: 100) {
             ...GatsbyImageSharpFluid
           }
         }
       }
-      mobileImage2: file(relativePath: { eq: "bg2-mobile.png" }) {
+      mobileImage2: file(relativePath: { eq: "bg2-mobile.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 2048, quality: 100) {
             ...GatsbyImageSharpFluid
           }
         }
       }
-      desktopImage2: file(relativePath: { eq: "bg2.png" }) {
+      desktopImage2: file(relativePath: { eq: "bg2.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 2048, quality: 100) {
             ...GatsbyImageSharpFluid
