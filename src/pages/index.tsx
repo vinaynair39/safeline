@@ -11,8 +11,6 @@ import Layout from "../components/Layout/Layout";
 
 import styles from "../styles/index.module.scss";
 import { motion } from "framer-motion";
-import FadeInWhenVisible from "../components/FadeInWhenVisible/FadeInWhenVisible";
-import SlipInWhenVisible from "../components/SlipInWhenVisible/SlipInWhenVisible";
 import SEO from "../components/SEO/SEO";
 
 const IndexPage: React.FC<PageProps> = ({ path }) => {

@@ -1,6 +1,6 @@
-import { Link } from "gatsby";
-import Img from "gatsby-image";
 import React from "react";
+import Img from "gatsby-image";
+import { Link } from "gatsby";
 import styles from "./Card.module.scss";
 
 interface Props {
@@ -9,6 +9,7 @@ interface Props {
   slug: string;
   type: string;
 }
+
 const Card: React.FC<Props> = ({ image, title, slug, type = "SERVICE" }) => {
   const route = type === "PROJECT" ? `/projects/${slug}` : `/${slug}`;
   return (

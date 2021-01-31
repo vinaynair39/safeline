@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { graphql, Link, useStaticQuery } from "gatsby";
 import { Twirl as Hamburger } from "hamburger-react";
 import styles from "./MobileNav.module.scss";

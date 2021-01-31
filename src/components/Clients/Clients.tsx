@@ -1,7 +1,7 @@
+import { useState } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import GatsbyImage from "gatsby-image";
 import React from "react";
-import { useState } from "react";
 import SlipInWhenVisible from "../SlipInWhenVisible/SlipInWhenVisible";
 import styles from "./Clients.module.scss";
 

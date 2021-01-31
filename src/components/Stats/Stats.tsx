@@ -1,10 +1,9 @@
 import React from "react";
+import { Link } from "gatsby";
+import FadeInWhenVisible from "../FadeInWhenVisible/FadeInWhenVisible";
 import Clients from "../../assets/clients.svg";
 import Projects from "../../assets/projects.svg";
 import Employees from "../../assets/employees.svg";
-import { Link } from "gatsby";
-import FadeInWhenVisible from "../FadeInWhenVisible/FadeInWhenVisible";
-
 import styles from "./Stats.module.scss";
 
 interface Props {

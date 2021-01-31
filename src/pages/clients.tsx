@@ -1,5 +1,4 @@
 import { graphql, PageProps, useStaticQuery } from "gatsby";
-import GatsbyImage from "gatsby-image";
 import React from "react";
 import Layout from "../components/Layout/Layout";
 import SecondaryLayout from "../components/SecondaryLayout/SecondaryLayout";

@@ -1,5 +1,5 @@
 import { PageProps } from "gatsby";
-import React, { useState } from "react";
+import React from "react";
 import CVForm from "../components/CVForm/CVForm";
 import Layout from "../components/Layout/Layout";
 import SEO from "../components/SEO/SEO";

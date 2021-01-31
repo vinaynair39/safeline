@@ -2,10 +2,8 @@ import { graphql, PageProps, useStaticQuery } from "gatsby";
 import GatsbyImage from "gatsby-image";
 import React from "react";
 import Layout from "../components/Layout/Layout";
-import QuoteForm from "../components/QuoteForm/QuoteForm";
 import SecondaryLayout from "../components/SecondaryLayout/SecondaryLayout";
 import SEO from "../components/SEO/SEO";
-import ServiceBar from "../components/ServiceBar/ServiceBar";
 import SlipInWhenVisible from "../components/SlipInWhenVisible/SlipInWhenVisible";
 import styles from "../styles/index.module.scss";
 

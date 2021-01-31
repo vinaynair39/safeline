@@ -1,11 +1,12 @@
 import React from "react";
-import Satisfaction from "../../assets/Satisfaction.svg";
-import Badge from "../../assets/badge.svg";
 import electric from "../../images/electric.png";
 import tower from "../../images/tower.png";
-import styles from "./WelcomeInfo.module.scss";
 import { motion } from "framer-motion";
 import SlipInWhenVisible from "../SlipInWhenVisible/SlipInWhenVisible";
+import Satisfaction from "../../assets/satisfaction.svg";
+import Badge from "../../assets/badge.svg";
+
+import styles from "./WelcomeInfo.module.scss";
 
 interface Props {}
 const WelcomeInfo: React.FC<Props> = ({}) => {

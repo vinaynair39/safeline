@@ -1,11 +1,9 @@
 import React, { useState } from "react";
-import Telephone from "../../assets/telephone.svg";
-import Mail from "../../assets/mail.svg";
 import Img from "gatsby-image";
-
 import MobileNav from "../MobileNav/MobileNav";
 import { graphql, Link, useStaticQuery } from "gatsby";
-
+import Telephone from "../../assets/telephone.svg";
+import Mail from "../../assets/mail.svg";
 import styles from "./Header.module.scss";
 
 interface Props {
