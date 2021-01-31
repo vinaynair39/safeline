@@ -65,7 +65,7 @@ const Hero: React.FC<Props> = ({}) => {
       },
     ],
     pretitle: "Safeline Electricals is",
-    title: "A Grade Government Registered & Licensed Electrical Contractor",
+    title: "A Class Government Registered & Licensed Electrical Contractor",
   };
 
   const source2 = {
@@ -85,16 +85,16 @@ const Hero: React.FC<Props> = ({}) => {
       <Slider autoplay arrows={false} autoplaySpeed={8000} duration={350} pauseOnHover={false}>
         <div className={styles.hero}>
           <div>
-            <Img className={styles.image} fluid={source1.images} />
+            <Img className={styles.image} fluid={source1.images} alt="A Class Government Registered & Licensed Electrical Contractor" />
           </div>
           <AnimatePresence exitBeforeEnter>
             <motion.div variants={containerAnimation} animate="to" initial="from" className={styles.content}>
-              <motion.p variants={containerAnimation} className={styles.pretitle}>
+              <motion.h3 variants={containerAnimation} className={styles.pretitle}>
                 {source1.pretitle}
-              </motion.p>
-              <motion.p variants={containerAnimation} className={styles.title}>
+              </motion.h3>
+              <motion.h1 variants={containerAnimation} className={styles.title}>
                 {source1.title}
-              </motion.p>
+              </motion.h1>
               <motion.div variants={containerAnimation} className={styles.buttons}>
                 <motion.a
                   whileHover={{
@@ -122,10 +122,10 @@ const Hero: React.FC<Props> = ({}) => {
           </AnimatePresence>
         </div>
         <div className={styles.hero}>
-          <Img className={styles.image} fluid={source2.images} />
+          <Img className={styles.image} fluid={source2.images} alt="Undertakes all types of civil and mechanical works" />
           <div className={styles.content}>
-            <p className={styles.pretitle}>{source2.pretitle}</p>
-            <p className={styles.title}>{source2.title}</p>
+            <h3 className={styles.pretitle}>{source2.pretitle}</h3>
+            <h1 className={styles.title}>{source2.title}</h1>
             <motion.div className={styles.buttons}>
               <motion.a
                 whileHover={{

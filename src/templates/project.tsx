@@ -3,6 +3,7 @@ import React from "react";
 import Card from "../components/Card/Card";
 import Layout from "../components/Layout/Layout";
 import ProjectCard from "../components/ProjectCard/ProjectCard";
+import SEO from "../components/SEO/SEO";
 import styles from "./project.module.scss";
 
 export const query = graphql`
@@ -42,6 +43,7 @@ export const query = graphql`
 const project: React.FC<PageProps> = ({ path, data }: { path: string; data: any }) => {
   return (
     <Layout path={path}>
+      <SEO title={data.contentfulProject.title} description={data.contentfulProject.description.description} />
       <div className={styles.projects}>
         <h1 className={styles.heading}>
           <span>{data.contentfulProject.title}</span>

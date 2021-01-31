@@ -3,6 +3,7 @@ import GatsbyImage from "gatsby-image";
 import React from "react";
 import Layout from "../components/Layout/Layout";
 import SecondaryLayout from "../components/SecondaryLayout/SecondaryLayout";
+import SEO from "../components/SEO/SEO";
 import SlipInWhenVisible from "../components/SlipInWhenVisible/SlipInWhenVisible";
 import styles from "../styles/index.module.scss";
 
@@ -22,6 +23,7 @@ const tools: React.FC<PageProps> = ({ path }) => {
   return (
     <Layout path={path}>
       <div className={styles.tools}>
+        <SEO title={"List of Tools & Plants"} description={null} />
         <SecondaryLayout>
           <SlipInWhenVisible>
             <div className={styles.content}>

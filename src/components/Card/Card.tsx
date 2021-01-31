@@ -1,6 +1,6 @@
 import { Link } from "gatsby";
 import Img from "gatsby-image";
-import React, { useState } from "react";
+import React from "react";
 import styles from "./Card.module.scss";
 
 interface Props {
@@ -14,7 +14,7 @@ const Card: React.FC<Props> = ({ image, title, slug, type = "SERVICE" }) => {
   return (
     <Link to={route} className={styles.card}>
       <div className={styles.image}>
-        <Img fluid={image} className={styles.imageTag} />
+        <Img fluid={image} className={styles.imageTag} alt={title} />
       </div>
       <div className={styles.content}>
         <Link to={route} className={styles.title}>

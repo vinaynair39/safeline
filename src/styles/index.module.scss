@@ -300,3 +300,21 @@
     margin-bottom: 12vh;
   }
 }
+
+.notFound {
+  height: 40vh;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3vh;
+  h1 {
+    padding: 6vh 6vw;
+    @include media(">tablet") {
+      font-size: 5vh;
+    }
+  }
+  a {
+    color: $green;
+  }
+}

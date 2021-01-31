@@ -1,9 +1,9 @@
 import { graphql, PageProps, useStaticQuery } from "gatsby";
-import React, { useState } from "react";
+import React from "react";
 import Card from "../components/Card/Card";
 import Layout from "../components/Layout/Layout";
-import ProjectCard from "../components/ProjectCard/ProjectCard";
 import Projects from "../components/Projects/Projects";
+import SEO from "../components/SEO/SEO";
 import styles from "../styles/index.module.scss";
 
 const projects: React.FC<PageProps> = ({ path }) => {
@@ -33,6 +33,7 @@ const projects: React.FC<PageProps> = ({ path }) => {
   return (
     <Layout path={path}>
       <div className={styles.projects}>
+        <SEO title={"Our Projects"} description={null} />
         <Projects exploreMore={false} />
         <div className={styles.other}>
           <h1 className={styles.heading}>
