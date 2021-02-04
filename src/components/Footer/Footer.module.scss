@@ -9,7 +9,7 @@
   @include media(">tablet") {
     display: grid;
     min-height: 55vh;
-    padding: 6vh 5vw;
+    padding: 4vh 6vw;
     height: fit-content;
     margin-top: 0;
     grid-template-columns: repeat(2, 1fr);
@@ -24,7 +24,7 @@
     @include media(">tablet") {
       padding-top: 4vh;
       padding-bottom: 4vh;
-      font-size: 2vh;
+      font-size: 2.3vh;
     }
   }
   .left {
@@ -82,7 +82,6 @@
         margin-top: 5vh;
         color: $grey;
         font-size: 2vh;
-
         align-self: end;
       }
     }
@@ -99,7 +98,7 @@
         height: 100%;
         display: grid;
         align-items: start;
-        grid-template-rows: 90% 10%;
+        grid-template-rows: 95% 5%;
       }
       .navlinks {
         transition: all 0.2s ease-in-out;
@@ -140,7 +139,7 @@
           letter-spacing: 1.5px;
           @include media(">tablet") {
             font-size: 2.3vh;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
           }
         }
         .address {
@@ -152,7 +151,7 @@
           @include media(">tablet") {
             font-size: 2.3vh;
             line-height: 150%;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
           }
         }
         .phone,
@@ -164,7 +163,7 @@
           line-height: 2.5vh;
           @include media(">tablet") {
             padding-top: 4vh;
-            letter-spacing: 4px;
+            letter-spacing: 1px;
             font-size: 2.3vh;
           }
         }
@@ -175,7 +174,7 @@
           letter-spacing: 1px;
           @include media(">tablet") {
             font-size: 2.3vh;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
           }
         }
       }
