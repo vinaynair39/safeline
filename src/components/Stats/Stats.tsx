@@ -11,6 +11,7 @@ interface Props {
   projects: number;
   employees: number;
 }
+
 const Stats: React.FC<Props> = ({ clients, projects, employees }) => {
   return (
     <div className={styles.stats}>

@@ -24,7 +24,7 @@
   @include media(">tablet") {
     border-radius: 8px;
     width: 42vh;
-    height: 52vh;
+    height: 53vh;
   }
 
   .image {
@@ -45,14 +45,15 @@
     padding: 1vh;
     @include flexbox(column, center, space-around);
     @include media(">tablet") {
-      padding: 2vh 0.8vh 0.4vh 0.8vh;
-      height: 14vh;
+      padding: 2vh 0.8vh 1vh 0.8vh;
+      height: 16vh;
       justify-content: space-between;
     }
     .title {
       color: white;
-      font-size: 2.8vh;
+      font-size: 2.4vh;
       font-weight: 600;
+      text-transform: capitalize;
       @include media(">tablet") {
         font-size: 2.4vh;
       }

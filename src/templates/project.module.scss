@@ -2,13 +2,18 @@
 
 .projects {
   margin-top: 6vh;
-
+  padding: 0 6vw;
   .other {
     .heading {
       margin-top: 8vh;
       margin-bottom: 6vh;
     }
   }
+
+  @include media(">tablet") {
+    padding: 0;
+  }
+
   .heading {
     margin-top: 6vh;
     text-align: center;
@@ -18,14 +23,6 @@
     position: relative;
     letter-spacing: 2px;
     margin-bottom: 6vh;
-
-    span {
-      border-bottom: 0.3vh solid $green;
-      display: inline-block;
-      height: 6vw;
-      border-radius: 1px;
-    }
-
     @include media(">tablet") {
       margin-top: 8vh;
       margin-bottom: 16vh;
@@ -45,10 +42,10 @@
     @include media(">tablet") {
       margin-top: 10vh;
       margin-bottom: 10vh;
+      padding: 0 6vw;
     }
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 0 6vw;
   }
 }

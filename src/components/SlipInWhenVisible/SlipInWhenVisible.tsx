@@ -1,10 +1,13 @@
 import { useAnimation, motion } from "framer-motion";
 import React, { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
+import useWindowSize from "../../../useWindowSize";
 
 interface Props {}
 const SlipInWhenVisible: React.FC<Props> = ({ children }) => {
   const controls = useAnimation();
+  const { width } = useWindowSize();
+
   const [ref, inView] = useInView();
 
   useEffect(() => {
@@ -13,7 +16,7 @@ const SlipInWhenVisible: React.FC<Props> = ({ children }) => {
     }
   }, [controls, inView]);
 
-  return (
+  return width >= 768 ? (
     <motion.div
       ref={ref}
       animate={controls}
@@ -32,6 +35,8 @@ const SlipInWhenVisible: React.FC<Props> = ({ children }) => {
     >
       {children}
     </motion.div>
+  ) : (
+    <div>{children}</div>
   );
 };
 export default SlipInWhenVisible;
