@@ -104,3 +104,35 @@
     }
   }
 }
+
+@keyframes navdown {
+  from {
+    opacity: 0;
+    height: 10vh;
+  }
+  to {
+    opacity: 1;
+    height: 40vh;
+  }
+}
+
+@keyframes submenudown {
+  from {
+    opacity: 0;
+    height: 10vh;
+  }
+  to {
+    opacity: 1;
+    height: 40vh;
+  }
+}
+@keyframes navup {
+  from {
+    opacity: 1;
+    height: 100vh;
+  }
+  to {
+    opacity: 0;
+    height: 8vh;
+  }
+}
