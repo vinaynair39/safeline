@@ -1,6 +1,4 @@
 import { graphql, Link, useStaticQuery } from "gatsby";
-import Menu, { SubMenu, MenuItem } from "rc-menu";
-
 import classnames from "classnames";
 import React from "react";
 import styles from "./Navbar.module.scss";
@@ -11,10 +9,22 @@ interface Props {
 const Navbar: React.FC<Props> = ({ path }) => {
   const data = useStaticQuery(graphql`
     query {
-      allContentfulService(sort: { fields: [serialNumber], order: ASC }) {
+      OTHERS: allContentfulService(filter: { type: { eq: "OTHERS" } }) {
         nodes {
-          slug
           serviceName
+          slug
+        }
+      }
+      MECHANICAL: allContentfulService(filter: { type: { eq: "MECHANICAL" } }) {
+        nodes {
+          serviceName
+          slug
+        }
+      }
+      ELECTRICAL: allContentfulService(filter: { type: { eq: "ELECTRICAL" } }) {
+        nodes {
+          serviceName
+          slug
         }
       }
     }
@@ -32,7 +42,7 @@ const Navbar: React.FC<Props> = ({ path }) => {
           <a href="#welcomeInfo" className={classnames(styles.button, { [styles.active]: path === "/about" })}>
             About Us
           </a>
-          <ul>
+          <ul className={styles.menu}>
             <li>
               <Link to="/chart">Organizational Chart</Link>
             </li>
@@ -45,23 +55,51 @@ const Navbar: React.FC<Props> = ({ path }) => {
             <li>
               <Link to="/certificates">Certificates</Link>
             </li>
-            <li>
-              <Link to="/awards">Awards & Recognition</Link>
-            </li>
           </ul>
         </div>
         <div className={styles.menuItem}>
           <a href="#services" className={classnames(styles.button, { [styles.active]: path === "/services" })}>
             Services
           </a>
-          <ul>
-            {data.allContentfulService.nodes.map(({ slug, serviceName }: { slug: string; serviceName: string }) => {
-              return (
-                <li>
-                  <Link to={`/${slug}`}>{serviceName}</Link>
-                </li>
-              );
-            })}
+          <ul className={styles.menu}>
+            <li>
+              <button>Electrical Services</button>
+              <ul>
+                {data.ELECTRICAL.nodes.map(({ slug, serviceName }: { slug: string; serviceName: string }) => {
+                  return (
+                    <li>
+                      <Link to={`/${slug}`} className={styles.submenuLink}>
+                        {serviceName}
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </li>
+            <li>
+              <button>Mechanical Services</button>
+              <ul>
+                {data.MECHANICAL.nodes.map(({ slug, serviceName }: { slug: string; serviceName: string }) => {
+                  return (
+                    <li>
+                      <Link to={`/${slug}`}>{serviceName}</Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </li>
+            <li>
+              <button>Other Services</button>
+              <ul>
+                {data.OTHERS.nodes.map(({ slug, serviceName }: { slug: string; serviceName: string }) => {
+                  return (
+                    <li>
+                      <Link to={`/${slug}`}>{serviceName}</Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </li>
           </ul>
         </div>
         <div className={styles.menuItem}>

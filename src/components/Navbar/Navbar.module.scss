@@ -10,7 +10,6 @@
     height: 8.7vh;
     display: flex;
     align-items: center;
-
     .button {
       font-size: 2.2vh;
       color: white;
@@ -20,19 +19,18 @@
       margin: auto 0;
       position: relative;
     }
-
     .menuItem {
       position: relative;
       z-index: 10;
       height: 8.7vh;
       display: flex;
       margin-right: 3.4vw;
-      ul {
+      .menu {
         @include flexbox(column, flex-start, space-evenly);
         visibility: hidden;
         opacity: 0;
-        transform: translateY(40px);
         pointer-events: none;
+        transform: translateY(40px);
         position: absolute;
         background: white;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -57,14 +55,50 @@
         li:last-child {
           margin-bottom: 0;
         }
-        a {
-          font-size: 2vh;
+        a,
+        button {
+          font-size: 2.2vh;
           color: $black;
           letter-spacing: 1px;
           transition: all 0.2s ease-in-out;
           font-weight: 600;
+          cursor: pointer;
           &:hover {
             color: $green;
+          }
+        }
+        button {
+          font-weight: 500;
+        }
+
+        li {
+          ul {
+            visibility: hidden;
+            opacity: 0;
+            height: 0;
+            transition: all 0.3s ease-in-out;
+            background: white;
+            padding: 0 1vw 0 1vw;
+            white-space: nowrap;
+            border-radius: 8px;
+            li {
+              // padding-bottom: 0.5vh;
+            }
+            li:last-child {
+              padding-bottom: 0;
+            }
+            a {
+              font-size: 2.1vh;
+              color: $black;
+              letter-spacing: 1px;
+              font-weight: 600;
+              transition: all 0.1s ease-in-out;
+              opacity: 0;
+              padding: 1.5vh 0;
+              &:hover {
+                color: $green;
+              }
+            }
           }
         }
       }
@@ -87,52 +121,31 @@
       cursor: pointer;
       transform: scale(1, 1);
     }
+
     .menuItem:hover::before {
       transform: scale(1, 1);
     }
 
-    .menuItem:hover a + ul {
+    .menuItem:hover a + .menu {
       visibility: visible;
       transform: translateY(0);
       opacity: 1;
       pointer-events: all;
     }
 
+    .menu li button:focus + ul {
+      visibility: visible;
+      height: fit-content;
+      margin: 3vh 0 1vh 0;
+      opacity: 1;
+      a {
+        opacity: 1;
+      }
+    }
+
     .active {
       color: $green;
       font-weight: 700;
     }
-  }
-}
-
-@keyframes navdown {
-  from {
-    opacity: 0;
-    height: 10vh;
-  }
-  to {
-    opacity: 1;
-    height: 40vh;
-  }
-}
-
-@keyframes submenudown {
-  from {
-    opacity: 0;
-    height: 10vh;
-  }
-  to {
-    opacity: 1;
-    height: 40vh;
-  }
-}
-@keyframes navup {
-  from {
-    opacity: 1;
-    height: 100vh;
-  }
-  to {
-    opacity: 0;
-    height: 8vh;
   }
 }

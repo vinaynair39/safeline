@@ -318,3 +318,42 @@
     color: $green;
   }
 }
+
+.certificates {
+  @include flexbox(column, center, center);
+  .slider {
+    width: 50vw;
+    margin: auto;
+    padding-bottom: 8vh;
+  }
+  .images {
+    margin: 5vh auto;
+  }
+
+  .heading {
+    text-align: center;
+    font-size: 4.8vw;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 4vh;
+    span {
+      border-bottom: 0.3vh solid $green;
+      display: inline-block;
+      height: 7vw;
+      border-radius: 1px;
+    }
+
+    @include media(">tablet") {
+      font-weight: bold;
+      font-size: 4vh;
+      padding-right: 2vw;
+      letter-spacing: 0.16em;
+      span {
+        border-bottom: 4px solid $green;
+        display: inline-block;
+        height: 6vh;
+        border-radius: 2px;
+      }
+    }
+  }
+}
