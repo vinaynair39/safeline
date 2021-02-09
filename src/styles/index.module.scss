@@ -320,14 +320,22 @@
 }
 
 .certificates {
-  @include flexbox(column, center, center);
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
   .slider {
-    width: 50vw;
-    margin: auto;
-    padding-bottom: 8vh;
+    @include flexbox(row, center, space-between);
+    // margin: auto;
+    padding: 2vh 6vw 6vh 6vw;
   }
   .images {
-    margin: 5vh auto;
+    transition: all 0.4s ease-in-out;
+    width: 18vw;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 
   .heading {
@@ -335,7 +343,7 @@
     font-size: 4.8vw;
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin-top: 4vh;
+    margin-top: 6vh;
     span {
       border-bottom: 0.3vh solid $green;
       display: inline-block;
