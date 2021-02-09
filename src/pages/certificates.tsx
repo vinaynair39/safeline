@@ -11,7 +11,7 @@ const certificates: React.FC<PageProps> = ({ path }) => {
 
   const data = useStaticQuery(graphql`
     query {
-      allFile(filter: { relativeDirectory: { eq: "certi" } }) {
+      allFile(filter: { relativeDirectory: { eq: "certi" } }, sort: { fields: [name], order: ASC }) {
         edges {
           node {
             childImageSharp {
