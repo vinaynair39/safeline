@@ -47,9 +47,6 @@ const MobileNav: React.FC<Props> = ({ isOpen, path, setOpen }) => {
               <li>
                 <Link to="/certificates">Certificates</Link>
               </li>
-              <li>
-                <Link to="/awards">Awards & Recognition</Link>
-              </li>
             </ul>
           </div>
           <div className={styles.menuItem}>
@@ -90,35 +87,3 @@ const MobileNav: React.FC<Props> = ({ isOpen, path, setOpen }) => {
   );
 };
 export default MobileNav;
-
-// <div className={styles.hamburger}>
-//         <Hamburger color={isOpen ? "#fff" : "#35393f"} rounded size={24} toggled={isOpen} toggle={setOpen} />
-//       </div>
-//       <div className={isOpen ? styles.navLinksOpened : styles.navLinks}>
-//         <ul>
-//           <li>
-
-//           </li>
-//         </ul>
-//         <Link to="/" className={path === "/" ? "active" : ""}>
-//           Home
-//         </Link>
-//         <Link to="/about" className={path === "/about" ? "active" : ""}>
-//           About Us
-//         </Link>
-//         <Link to="/services" className={path === "/services" ? "active" : ""}>
-//           Services
-//         </Link>
-//         <Link to="/projects" className={path === "/projects" ? "active" : ""}>
-//           Projects
-//         </Link>
-//         <Link to="/clients" className={path === "/clients" ? "active" : ""}>
-//           Our clients
-//         </Link>
-//         <Link to="/careers" className={path === "/careers" ? "active" : ""}>
-//           Careers
-//         </Link>
-//         <Link to="/contacts" className={path === "/contacts" ? "active" : ""}>
-//           Contact Us
-//         </Link>
-//       </div>
