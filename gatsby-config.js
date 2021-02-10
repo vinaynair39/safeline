@@ -6,7 +6,8 @@ module.exports = {
   siteMetadata: {
     title: "Safeline Electricals",
     titleTemplate: "Safeline Electricals",
-    description: "A Grade Government Registered & Licensed Electrical Contractor",
+    description:
+      "A Grade Government Registered & Licensed Electrical Contractor. Safeline also undertakes all types of civil and mechanical works. Today Safeline is synonymous with Technical & Managerial expertise and is on of the most trusted contractors from Mumbai, Maharashtra.",
     url: "https://safelineelectricals.in", // No trailing slash allowed!
     siteUrl: "https://safelineelectricals.in",
     locale: "en-IN",
