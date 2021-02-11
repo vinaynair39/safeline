@@ -75,15 +75,18 @@
           ul {
             visibility: hidden;
             opacity: 0;
-            height: 0;
             transition: all 0.3s ease-in-out;
             background: white;
             padding: 0 1vw 0 1vw;
             white-space: nowrap;
             border-radius: 8px;
+            position: absolute;
+            left: 14vw;
+            top: 2vh;
             li {
               font-size: 2.1vh;
               color: $black;
+              width: 100%;
               letter-spacing: 1px;
               font-weight: 600;
               transition: all 0.1s ease-in-out;
@@ -130,7 +133,16 @@
       pointer-events: all;
     }
 
-    .menu li button:focus + ul {
+    .menu li button:hover + ul {
+      visibility: visible;
+      height: fit-content;
+      opacity: 1;
+      li {
+        opacity: 1;
+      }
+    }
+
+    .submenu:hover {
       visibility: visible;
       height: fit-content;
       opacity: 1;

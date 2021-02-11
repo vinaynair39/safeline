@@ -64,7 +64,7 @@ const Navbar: React.FC<Props> = ({ path }) => {
           <ul className={styles.menu}>
             <li>
               <button>Electrical Services</button>
-              <ul>
+              <ul className={styles.submenu}>
                 {data.ELECTRICAL.nodes.map(({ slug, serviceName }: { slug: string; serviceName: string }) => {
                   return (
                     <Link to={`/${slug}`} className={styles.submenuLink}>
@@ -76,7 +76,7 @@ const Navbar: React.FC<Props> = ({ path }) => {
             </li>
             <li>
               <button>Mechanical Services</button>
-              <ul>
+              <ul className={styles.submenu}>
                 {data.MECHANICAL.nodes.map(({ slug, serviceName }: { slug: string; serviceName: string }) => {
                   return (
                     <Link to={`/${slug}`}>
@@ -88,7 +88,7 @@ const Navbar: React.FC<Props> = ({ path }) => {
             </li>
             <li>
               <button>Other Services</button>
-              <ul>
+              <ul className={styles.submenu}>
                 {data.OTHERS.nodes.map(({ slug, serviceName }: { slug: string; serviceName: string }) => {
                   return (
                     <Link to={`/${slug}`}>
