@@ -74,12 +74,13 @@
 
         button {
           font-weight: 500;
+          font-size: 2.3vh;
         }
 
         li {
           position: relative;
           ul {
-            visibility: hidden;
+            display: none;
             opacity: 0;
             transition: all 0.3s ease-in-out;
             background: white;
@@ -92,9 +93,8 @@
             border-radius: 8px;
             position: absolute;
             left: 14.7vw;
-            top: 0;
+            top: -1vh;
             a {
-              display: none;
               padding: 2vh 1vw;
             }
             li {
@@ -150,9 +150,7 @@
       visibility: visible;
       height: fit-content;
       opacity: 1;
-      a {
-        display: block;
-      }
+      @include flexbox(column, flex-start, space-evenly);
       li {
         opacity: 1;
       }
@@ -162,9 +160,7 @@
       visibility: visible;
       height: fit-content;
       opacity: 1;
-      a {
-        display: block;
-      }
+      @include flexbox(column, flex-start, space-evenly);
       li {
         opacity: 1;
       }
