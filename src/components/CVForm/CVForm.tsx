@@ -93,18 +93,32 @@ const CVForm: React.FC<Props> = ({}) => {
             </div>
             <div className={styles.third}>
               <>
-                <input type="file" name="resume" ref={register({ required: "Your resume is required" })} />
+                <input
+                  type="file"
+                  name="resume"
+                  ref={register({
+                    required: "Your resume is required",
+                    validate: {
+                      checkPdf: (value: FileList) => value[0].type.includes("pdf"),
+                    },
+                  })}
+                />
               </>
             </div>
             <div className={styles.fourth}>
               <textarea name="message" placeholder="Tell us something about yourself" ref={register({ required: false })} rows={10} />
             </div>
+            {console.log(errors)}
             <div className={styles.errors}>
               <ErrorMessage errors={errors} name="name" render={({ message }) => <p className={styles.error}>{message}</p>} />
               <ErrorMessage errors={errors} name="phone" render={({ message }) => <p className={styles.error}>{message}</p>} />
               <ErrorMessage errors={errors} name="email" render={({ message }) => <p className={styles.error}>{message}</p>} />
               <ErrorMessage errors={errors} name="zip" render={({ message }) => <p className={styles.error}>{message}</p>} />
-              <ErrorMessage errors={errors} name="resume" render={({ message }) => <p className={styles.error}>{message}</p>} />
+              <ErrorMessage
+                errors={errors}
+                name="resume"
+                render={({ message }) => <p className={styles.error}>You can only upload PDF file. Please try again.</p>}
+              />
               <ErrorMessage errors={errors} name="message" render={({ message }) => <p className={styles.error}>{message}</p>} />
             </div>
             <button type="submit" disabled={loading}>
