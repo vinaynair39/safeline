@@ -36,6 +36,7 @@ const Projects: React.FC<Props> = ({ exploreMore }) => {
       setCommentIndex(index);
     }
   };
+
   return (
     <div className={styles.projects}>
       <SlipInWhenVisible>

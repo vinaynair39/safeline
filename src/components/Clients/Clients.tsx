@@ -61,7 +61,7 @@ const Clients: React.FC<Props> = ({}) => {
           {data.allFile.edges.map(({ node }: any) => {
             const image = node.childImageSharp.fluid;
             return (
-              <div className={styles.slide}>
+              <div className={styles.slide} key={image.src}>
                 <GatsbyImage fluid={image} alt={"Electrical Contractor Clients"} />
               </div>
             );

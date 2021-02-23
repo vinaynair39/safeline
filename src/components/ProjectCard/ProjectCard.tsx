@@ -5,6 +5,7 @@ import Slider from "infinite-react-carousel";
 import styles from "./ProjectCard.module.scss";
 import SlipInWhenVisible from "../SlipInWhenVisible/SlipInWhenVisible";
 import SlipInRightWhenVisible from "../SlipInWhenVisible/SlipInRightWhenVisible";
+import useWindowSize from "../../../useWindowSize";
 
 interface Props {
   image: any;
@@ -15,39 +16,76 @@ interface Props {
 }
 
 const ProjectCard: React.FC<Props> = ({ isMobile, image, title, description, exploreMore = true }) => {
+  const { width } = useWindowSize();
+
   return (
     <div className={styles.projectCard}>
-      <SlipInWhenVisible>
-        <div className={styles.content} style={!exploreMore ? { justifyContent: "center" } : {}}>
-          <h1 className={styles.title}>{title}</h1>
-          {isMobile ? (
-            <p className={styles.description}>
-              {description.substring(0, 150)} {description.length > 150 ? " ..." : ""}
-            </p>
-          ) : (
-            <p className={styles.description}>{description}</p>
-          )}
+      {width > 768 ? (
+        <SlipInWhenVisible>
+          <div className={styles.content} style={!exploreMore ? { justifyContent: "center" } : {}}>
+            <h1 className={styles.title}>{title}</h1>
+            {isMobile ? (
+              <p className={styles.description}>
+                {description.substring(0, 150)} {description.length > 150 ? " ..." : ""}
+              </p>
+            ) : (
+              <p className={styles.description}>{description}</p>
+            )}
 
-          {exploreMore && (
-            <Link to="/projects" className={styles.button}>
-              Explore More
-            </Link>
-          )}
-        </div>
-      </SlipInWhenVisible>
+            {exploreMore && (
+              <Link to="/projects" className={styles.button}>
+                Explore More
+              </Link>
+            )}
+          </div>
+        </SlipInWhenVisible>
+      ) : (
+        <>
+          <div className={styles.content} style={!exploreMore ? { justifyContent: "center" } : {}}>
+            <h1 className={styles.title}>{title}</h1>
+            {isMobile ? (
+              <p className={styles.description}>
+                {description.substring(0, 150)} {description.length > 150 ? " ..." : ""}
+              </p>
+            ) : (
+              <p className={styles.description}>{description}</p>
+            )}
+
+            {exploreMore && (
+              <Link to="/projects" className={styles.button}>
+                Explore More
+              </Link>
+            )}
+          </div>
+        </>
+      )}
 
       <div className={styles.imageCard}>
-        <SlipInRightWhenVisible>
-          {Array.isArray(image) ? (
-            <Slider autoplay arrows={false} autoplaySpeed={4000}>
-              {image.map((node: any) => {
-                return <GatsbyImage fluid={node.fluid} className={styles.image} />;
-              })}
-            </Slider>
-          ) : (
-            <GatsbyImage fluid={image} className={styles.image} />
-          )}
-        </SlipInRightWhenVisible>
+        {width > 786 ? (
+          <SlipInRightWhenVisible>
+            {Array.isArray(image) ? (
+              <Slider autoplay arrows={false} autoplaySpeed={4000}>
+                {image.map((node: any) => {
+                  return <GatsbyImage fluid={node.fluid} className={styles.image} key={node.fluid} />;
+                })}
+              </Slider>
+            ) : (
+              <GatsbyImage fluid={image} className={styles.image} />
+            )}
+          </SlipInRightWhenVisible>
+        ) : (
+          <>
+            {Array.isArray(image) ? (
+              <Slider autoplay arrows={false} autoplaySpeed={4000}>
+                {image.map((node: any) => {
+                  return <GatsbyImage fluid={node.fluid} className={styles.image} key={node.fluid} />;
+                })}
+              </Slider>
+            ) : (
+              <GatsbyImage fluid={image} className={styles.image} />
+            )}
+          </>
+        )}
       </div>
     </div>
   );

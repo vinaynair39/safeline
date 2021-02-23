@@ -6,7 +6,6 @@ import useWindowSize from "../../../useWindowSize";
 interface Props {}
 const SlipInRightWhenVisible: React.FC<Props> = ({ children }) => {
   const controls = useAnimation();
-  const { width } = useWindowSize();
   const [ref, inView] = useInView();
 
   useEffect(() => {
@@ -15,11 +14,11 @@ const SlipInRightWhenVisible: React.FC<Props> = ({ children }) => {
     }
   }, [controls, inView]);
 
-  return width >= 768 ? (
+  return (
     <motion.div
       ref={ref}
       animate={controls}
-      initial="hidden"
+      initial={"hidden"}
       variants={{
         visible: {
           opacity: 1,
@@ -34,8 +33,6 @@ const SlipInRightWhenVisible: React.FC<Props> = ({ children }) => {
     >
       {children}
     </motion.div>
-  ) : (
-    <div> {children}</div>
   );
 };
 export default SlipInRightWhenVisible;

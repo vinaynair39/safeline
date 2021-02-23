@@ -37,7 +37,7 @@ const Services: React.FC<Props> = ({}) => {
       <div className={styles.description}>We are a team of professionals and skilled experts and we offer a wide range of services & solutions</div>
       <div className={styles.cards}>
         {data.allContentfulService.nodes.map(({ serviceName, image, slug }: { serviceName: string; image: any; slug: string }) => {
-          return <Card image={image.fluid} title={serviceName} slug={slug} type={"SERVICE"} />;
+          return <Card image={image.fluid} title={serviceName} slug={slug} type={"SERVICE"} key={slug} />;
         })}
       </div>
     </div>

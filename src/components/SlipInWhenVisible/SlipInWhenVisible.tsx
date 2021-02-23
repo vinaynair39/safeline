@@ -16,7 +16,7 @@ const SlipInWhenVisible: React.FC<Props> = ({ children }) => {
     }
   }, [controls, inView]);
 
-  return width >= 768 ? (
+  return (
     <motion.div
       ref={ref}
       animate={controls}
@@ -35,8 +35,6 @@ const SlipInWhenVisible: React.FC<Props> = ({ children }) => {
     >
       {children}
     </motion.div>
-  ) : (
-    <div>{children}</div>
   );
 };
 export default SlipInWhenVisible;

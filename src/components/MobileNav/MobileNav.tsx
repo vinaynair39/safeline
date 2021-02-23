@@ -54,7 +54,7 @@ const MobileNav: React.FC<Props> = ({ isOpen, path, setOpen }) => {
             <ul>
               {data.allContentfulService.nodes.map(({ slug, serviceName }: { slug: string; serviceName: string }) => {
                 return (
-                  <li>
+                  <li key={slug}>
                     <Link to={`/${slug}`}>{serviceName}</Link>
                   </li>
                 );
