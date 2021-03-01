@@ -5,7 +5,6 @@ import Slider from "infinite-react-carousel";
 import styles from "./ProjectCard.module.scss";
 import SlipInWhenVisible from "../SlipInWhenVisible/SlipInWhenVisible";
 import SlipInRightWhenVisible from "../SlipInWhenVisible/SlipInRightWhenVisible";
-import useWindowSize from "../../../useWindowSize";
 
 interface Props {
   image: any;
@@ -16,8 +15,6 @@ interface Props {
 }
 
 const ProjectCard: React.FC<Props> = ({ isMobile, image, title, description, exploreMore = true }) => {
-  const { width } = useWindowSize();
-
   return (
     <div className={styles.projectCard}>
       <SlipInWhenVisible>
