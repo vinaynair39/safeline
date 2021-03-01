@@ -61,31 +61,17 @@ const ProjectCard: React.FC<Props> = ({ isMobile, image, title, description, exp
       )}
 
       <div className={styles.imageCard}>
-        {width > 786 ? (
-          <SlipInRightWhenVisible>
-            {Array.isArray(image) ? (
-              <Slider autoplay arrows={false} autoplaySpeed={4000}>
-                {image.map((node: any) => {
-                  return <GatsbyImage fluid={node.fluid} className={styles.image} key={node.fluid} />;
-                })}
-              </Slider>
-            ) : (
-              <GatsbyImage fluid={image} className={styles.image} />
-            )}
-          </SlipInRightWhenVisible>
-        ) : (
-          <>
-            {Array.isArray(image) ? (
-              <Slider autoplay arrows={false} autoplaySpeed={4000}>
-                {image.map((node: any) => {
-                  return <GatsbyImage fluid={node.fluid} className={styles.image} key={node.fluid} />;
-                })}
-              </Slider>
-            ) : (
-              <GatsbyImage fluid={image} className={styles.image} />
-            )}
-          </>
-        )}
+        <SlipInRightWhenVisible>
+          {Array.isArray(image) ? (
+            <Slider autoplay arrows={false} autoplaySpeed={4000}>
+              {image.map((node: any) => {
+                return <GatsbyImage fluid={node.fluid} className={styles.image} key={node.fluid} />;
+              })}
+            </Slider>
+          ) : (
+            <GatsbyImage fluid={image} className={styles.image} />
+          )}
+        </SlipInRightWhenVisible>
       </div>
     </div>
   );
