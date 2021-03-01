@@ -20,46 +20,24 @@ const ProjectCard: React.FC<Props> = ({ isMobile, image, title, description, exp
 
   return (
     <div className={styles.projectCard}>
-      {width > 768 ? (
-        <SlipInWhenVisible>
-          <div className={styles.content} style={!exploreMore ? { justifyContent: "center" } : {}}>
-            <h1 className={styles.title}>{title}</h1>
-            {isMobile ? (
-              <p className={styles.description}>
-                {description.substring(0, 150)} {description.length > 150 ? " ..." : ""}
-              </p>
-            ) : (
-              <p className={styles.description}>{description}</p>
-            )}
+      <SlipInWhenVisible>
+        <div className={styles.content} style={!exploreMore ? { justifyContent: "center" } : {}}>
+          <h1 className={styles.title}>{title}</h1>
+          {isMobile ? (
+            <p className={styles.description}>
+              {description.substring(0, 150)} {description.length > 150 ? " ..." : ""}
+            </p>
+          ) : (
+            <p className={styles.description}>{description}</p>
+          )}
 
-            {exploreMore && (
-              <Link to="/projects" className={styles.button}>
-                Explore More
-              </Link>
-            )}
-          </div>
-        </SlipInWhenVisible>
-      ) : (
-        <>
-          <div className={styles.content} style={!exploreMore ? { justifyContent: "center" } : {}}>
-            <h1 className={styles.title}>{title}</h1>
-            {isMobile ? (
-              <p className={styles.description}>
-                {description.substring(0, 150)} {description.length > 150 ? " ..." : ""}
-              </p>
-            ) : (
-              <p className={styles.description}>{description}</p>
-            )}
-
-            {exploreMore && (
-              <Link to="/projects" className={styles.button}>
-                Explore More
-              </Link>
-            )}
-          </div>
-        </>
-      )}
-
+          {exploreMore && (
+            <Link to="/projects" className={styles.button}>
+              Explore More
+            </Link>
+          )}
+        </div>
+      </SlipInWhenVisible>
       <div className={styles.imageCard}>
         <SlipInRightWhenVisible>
           {Array.isArray(image) ? (
