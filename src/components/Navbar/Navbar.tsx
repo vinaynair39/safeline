@@ -120,6 +120,11 @@ const Navbar: React.FC<Props> = ({ path }) => {
             Contact Us
           </Link>
         </div>
+        {/* <div className={styles.menuItem}>
+          <Link to="/blogs" className={classnames(styles.button, { [styles.active]: path === "/blogs" })}>
+            Blogs
+          </Link>
+        </div> */}
       </div>
     </nav>
   );

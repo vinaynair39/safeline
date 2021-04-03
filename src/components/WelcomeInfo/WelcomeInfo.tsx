@@ -1,6 +1,6 @@
 import React from "react";
-import electric from "../../images/electric.png";
-import tower from "../../images/tower.png";
+import electric from "../../images/electric.webp";
+import tower from "../../images/tower.webp";
 import { motion } from "framer-motion";
 import SlipInWhenVisible from "../SlipInWhenVisible/SlipInWhenVisible";
 import Satisfaction from "../../assets/satisfaction.svg";

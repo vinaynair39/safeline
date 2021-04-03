@@ -24,7 +24,6 @@
     "framer-motion": "^3.2.2-rc.1",
     "gatsby": "^2.26.1",
     "gatsby-image": "^2.10.0",
-    "gatsby-image-background-slider": "0.0.4",
     "gatsby-plugin-manifest": "^2.11.0",
     "gatsby-plugin-offline": "^3.9.0",
     "gatsby-plugin-react-helmet": "^3.9.0",

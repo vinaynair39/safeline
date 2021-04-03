@@ -1,8 +1,6 @@
 require("dotenv").config({
   path: `.env`,
 });
-  Industrial Electrical Project services, Office Electrical Contractor Services, Commercial Electrical Contractor For IT Park
-
 module.exports = {
   siteMetadata: {
     title: "Safeline Electricals",
