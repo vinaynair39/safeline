@@ -61,7 +61,7 @@ const Hero: React.FC<Props> = ({}) => {
       data.mobileImage.childImageSharp.fluid,
       {
         ...data.desktopImage.childImageSharp.fluid,
-        media: `(min-width: 768px)`,
+        media: `(min-width: 1024px)`,
       },
     ],
     pretitle: "Safeline Electricals is",
@@ -73,7 +73,7 @@ const Hero: React.FC<Props> = ({}) => {
       data.mobileImage2.childImageSharp.fluid,
       {
         ...data.desktopImage2.childImageSharp.fluid,
-        media: `(min-width: 768px)`,
+        media: `(min-width: 1024px)`,
       },
     ],
     pretitle: "Safeline electricals also",

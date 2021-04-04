@@ -30,6 +30,8 @@
   .image {
     overflow: hidden;
     box-sizing: border-box;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
     @include media(">tablet") {
       width: 42vh;
     }
@@ -38,6 +40,7 @@
       height: 36vh;
     }
   }
+  
   .content {
     height: 16.5vh;
     text-align: center;

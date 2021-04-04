@@ -7,7 +7,7 @@
 }
 
 .navbar {
-  @include media(">tablet") {
+  @include media(">desktop") {
     display: none;
   }
 
@@ -16,7 +16,7 @@
     position: absolute;
     left: 0;
     width: 100%;
-    top: 10vh;
+    top: 11%;
     z-index: 100;
     padding: 0 8vw 8vw 8vw;
     background-color: white;
@@ -109,7 +109,7 @@
     }
     to {
       opacity: 1;
-      height: 41vh;
+      height: 47.5vh;
     }
   }
 

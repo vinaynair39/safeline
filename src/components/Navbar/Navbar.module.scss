@@ -1,7 +1,7 @@
 @import "../../styles/styles";
 
 .navbar {
-  @include media("<tablet") {
+  @include media("<desktop") {
     display: none;
   }
   background-color: $black;

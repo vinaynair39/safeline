@@ -81,6 +81,11 @@ const MobileNav: React.FC<Props> = ({ isOpen, path, setOpen }) => {
               Contact Us
             </Link>
           </div>
+          <div className={styles.menuItem}>
+            <Link to="/blogs" className={classnames(styles.button, { [styles.active]: path === "/blogs" })}>
+              Blogs
+            </Link>
+          </div>
         </div>
       </nav>
     </>

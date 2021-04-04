@@ -28,6 +28,8 @@ const Footer: React.FC<Props> = ({}) => {
             <Link to="/clients">Our clients</Link>
             <Link to="/careers">Careers</Link>
             <Link to="/contacts">Contact Us</Link>
+            <Link to="/blogs">Blogs</Link>
+
           </div>
           <div className={styles.details}>
             <p>Contact Us</p>

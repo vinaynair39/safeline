@@ -18,6 +18,10 @@
     }
 
     p {
+      display: flex;
+      justify-content: space-between;
+      width: 80%;
+      flex-wrap: wrap;
       font-size: 2vh;
       padding-top: 0.2vh;
       padding-left: 1.5vw;
@@ -32,14 +36,12 @@
       }
       & span {
         color: #002e00;
-        position: relative;
-        left: -6px;
       }
     }
   }
 
   .info {
-    @include media("<tablet") {
+    @include media("<desktop") {
       display: none;
     }
     @include flexbox(row, center, center);
