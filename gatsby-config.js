@@ -29,8 +29,7 @@ module.exports = {
           include: /assets/, // See below to configure properly
         },
       },
-    },
-    "gatsby-plugin-sitemap",
+    },    
     "gatsby-plugin-sass",
     "gatsby-plugin-sharp",
     "gatsby-plugin-react-helmet",

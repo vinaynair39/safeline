@@ -4,6 +4,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   const serviceTemplate = path.resolve("./src/templates/service.tsx");
   const projectTemplate = path.resolve("./src/templates/project.tsx");
+  const blogTemplate = path.resolve("./src/templates/blog.jsx");
 
   const res = await graphql(`
     query {
@@ -14,6 +15,12 @@ module.exports.createPages = async ({ graphql, actions }) => {
       }
 
       allContentfulProject {
+        nodes {
+          slug
+        }
+      }
+
+      allContentfulBlog(sort: { fields: [published], order: DESC }) {
         nodes {
           slug
         }
@@ -35,6 +42,16 @@ module.exports.createPages = async ({ graphql, actions }) => {
     createPage({
       component: projectTemplate,
       path: `/projects/${slug}`,
+      context: {
+        slug: slug,
+      },
+    });
+  });
+
+  res.data.allContentfulBlog.nodes.forEach(({ slug }) => {
+    createPage({
+      component: blogTemplate,
+      path: `/blog/${slug}`,
       context: {
         slug: slug,
       },
