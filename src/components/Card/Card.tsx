@@ -7,7 +7,7 @@ interface Props {
   image: any;
   title: string;
   slug: string;
-  type: string;
+  type?: string;
   forBlog?: boolean;
 }
 
@@ -31,7 +31,8 @@ const Card: React.FC<Props> = ({
       </div>
       <div className={styles.content}>
         <Link to={route} className={styles.title}>
-          {title}
+          {title.substring(0, 60)}
+          {title.length > 60 && ".."}
         </Link>
         <div>
           <button>

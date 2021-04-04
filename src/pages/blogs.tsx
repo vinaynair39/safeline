@@ -26,7 +26,7 @@ const blogs: React.FC<PageProps> = ({ path }) => {
   return (
     <Layout path={path}>
       <div className={styles.projects}>
-        <SEO title={"Our Projects"} description={null} />
+        <SEO title={"Our Blogs"} description={null} />
         <div className={styles.other}>
           <h1 className={styles.heading}>
             <span>Our Blogs</span>
@@ -34,7 +34,7 @@ const blogs: React.FC<PageProps> = ({ path }) => {
           <div className={styles.cards}>
             {data.allContentfulBlog.nodes.map(({ title, coverImage, slug }: { title: string; coverImage: any; slug: string }) => {
               console.log(coverImage.file.url)
-              return <Card image={coverImage.file.url} title={title} slug={slug} type="PROJECT" forBlog />;
+              return <Card image={coverImage.file.url} title={title} slug={slug} forBlog />;
             })}
           </div>
         </div>
