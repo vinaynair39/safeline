@@ -21,7 +21,9 @@
     color: $black;
     padding-bottom: 2rem;
     @include media("<tablet") {
-      font-size: 4vh;
+      padding-left:0.5rem;
+      padding-right:0.5rem;
+      font-size: 8vw;
     }
   }
 }
