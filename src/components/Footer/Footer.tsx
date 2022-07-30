@@ -41,7 +41,7 @@ const Footer: React.FC<Props> = ({}) => {
               Industrial Area, Navi Mumbai - 410208 Maharashtra, India
             </div>
             <div className={styles.phone}>
-              Phone : (022) 27401956 / 8425846364{' '}
+              Phone : (+91)9372156520/8104861607{' '}
             </div>
             <div className={styles.email}>
               {' '}

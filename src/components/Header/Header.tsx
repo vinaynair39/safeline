@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import Img from "gatsby-image";
-import MobileNav from "../MobileNav/MobileNav";
-import { graphql, Link, useStaticQuery } from "gatsby";
-import Telephone from "../../assets/telephone.svg";
-import Mail from "../../assets/mail.svg";
-import styles from "./Header.module.scss";
+import React, { useState } from 'react';
+import Img from 'gatsby-image';
+import MobileNav from '../MobileNav/MobileNav';
+import { graphql, Link, useStaticQuery } from 'gatsby';
+import Telephone from '../../assets/telephone.svg';
+import Mail from '../../assets/mail.svg';
+import styles from './Header.module.scss';
 
 interface Props {
   path: string;
@@ -27,7 +27,10 @@ const Header: React.FC<Props> = ({ path }) => {
     <div className={styles.header}>
       <Link to="/" className={styles.logo}>
         <div className={styles.imageContainer}>
-          <Img fluid={data.logo.childImageSharp.fluid} style={{ width: "100%" }} />
+          <Img
+            fluid={data.logo.childImageSharp.fluid}
+            style={{ width: '100%' }}
+          />
         </div>
         <p>
           Safeline <span>Electricals</span>
@@ -37,7 +40,7 @@ const Header: React.FC<Props> = ({ path }) => {
       <div className={styles.info}>
         <div className={styles.telephone}>
           <Telephone />
-          <p>(022)27401956/8425846364</p>
+          <p>(+91)9372156520/8104861607</p>
         </div>
         <div className={styles.mail}>
           <Mail />

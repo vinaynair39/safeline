@@ -27,9 +27,17 @@ const Navbar: React.FC<Props> = ({ path }) => {
           slug
         }
       }
+      contentfulBroucher {
+        broucher {
+          file {
+            url
+          }
+        }
+      }
     }
   `);
 
+  const broucherURL = data?.contentfulBroucher?.broucher?.file?.url || '';
   return (
     <nav className={styles.navbar}>
       <div className={styles.dropdown}>
@@ -184,14 +192,13 @@ const Navbar: React.FC<Props> = ({ path }) => {
           </Link>
         </div>
         <div className={styles.menuItem}>
-          <Link
-            to="/blogs"
-            className={classnames(styles.button, {
-              [styles.active]: path === '/blogs',
-            })}
+          <a
+            href={broucherURL}
+            target="_blank"
+            className={classnames(styles.button)}
           >
-            Blogs
-          </Link>
+            Broucher
+          </a>
         </div>
       </div>
     </nav>
