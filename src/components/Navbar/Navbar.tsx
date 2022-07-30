@@ -197,7 +197,7 @@ const Navbar: React.FC<Props> = ({ path }) => {
             target="_blank"
             className={classnames(styles.button)}
           >
-            Broucher
+            Brochure
           </a>
         </div>
       </div>
